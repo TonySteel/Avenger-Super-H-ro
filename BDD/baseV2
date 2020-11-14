@@ -1,0 +1,461 @@
+-- --------------------------------------------------------
+-- Hôte :                        localhost
+-- Version du serveur:           10.3.9-MariaDB - mariadb.org binary distribution
+-- SE du serveur:                Win64
+-- HeidiSQL Version:             9.4.0.5125
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+-- Export de la structure de la base pour avenger
+CREATE DATABASE IF NOT EXISTS `avenger` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `avenger`;
+
+-- Export de la structure de la table avenger. incident_mission
+CREATE TABLE IF NOT EXISTS `incident_mission` (
+  `CODEINCIDENT` int(11) NOT NULL,
+  `CODEMISSION` int(11) NOT NULL,
+  PRIMARY KEY (`CODEINCIDENT`,`CODEMISSION`),
+  KEY `FK_INCIDENT_INCIDENT__TMISSION` (`CODEMISSION`),
+  CONSTRAINT `FK_INCIDENT_INCIDENT__TINCIDEN` FOREIGN KEY (`CODEINCIDENT`) REFERENCES `tincidents` (`CODEINCIDENT`),
+  CONSTRAINT `FK_INCIDENT_INCIDENT__TMISSION` FOREIGN KEY (`CODEMISSION`) REFERENCES `tmissions` (`CODEMISSION`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.incident_mission : ~2 rows (environ)
+/*!40000 ALTER TABLE `incident_mission` DISABLE KEYS */;
+INSERT INTO `incident_mission` (`CODEINCIDENT`, `CODEMISSION`) VALUES
+	(2, 1),
+	(3, 2);
+/*!40000 ALTER TABLE `incident_mission` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. litige_crise
+CREATE TABLE IF NOT EXISTS `litige_crise` (
+  `CODELITIGE` int(11) NOT NULL,
+  `CODECRISE` int(11) NOT NULL,
+  `HISTORIQUELTIGE` date DEFAULT NULL,
+  PRIMARY KEY (`CODELITIGE`,`CODECRISE`),
+  KEY `FK_LITIGE_C_LITIGE_CR_TCRISE` (`CODECRISE`),
+  CONSTRAINT `FK_LITIGE_C_LITIGE_CR_TCRISE` FOREIGN KEY (`CODECRISE`) REFERENCES `tcrise` (`CODECRISE`),
+  CONSTRAINT `FK_LITIGE_C_LITIGE_CR_TLITIGE` FOREIGN KEY (`CODELITIGE`) REFERENCES `tlitige` (`CODELITIGE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.litige_crise : ~3 rows (environ)
+/*!40000 ALTER TABLE `litige_crise` DISABLE KEYS */;
+INSERT INTO `litige_crise` (`CODELITIGE`, `CODECRISE`, `HISTORIQUELTIGE`) VALUES
+	(2, 1, '2020-04-16'),
+	(4, 3, '2019-04-16'),
+	(6, 2, '2020-04-16');
+/*!40000 ALTER TABLE `litige_crise` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. litige_registre
+CREATE TABLE IF NOT EXISTS `litige_registre` (
+  `CODEVRAC` int(11) NOT NULL,
+  `CODELITIGE` int(11) NOT NULL,
+  PRIMARY KEY (`CODEVRAC`,`CODELITIGE`),
+  KEY `FK_LITIGE_R_LITIGE_RE_TLITIGE` (`CODELITIGE`),
+  CONSTRAINT `FK_LITIGE_R_LITIGE_RE_TLITIGE` FOREIGN KEY (`CODELITIGE`) REFERENCES `tlitige` (`CODELITIGE`),
+  CONSTRAINT `FK_LITIGE_R_LITIGE_RE_TREGISTR` FOREIGN KEY (`CODEVRAC`) REFERENCES `tregistre` (`CODEVRAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.litige_registre : ~1 rows (environ)
+/*!40000 ALTER TABLE `litige_registre` DISABLE KEYS */;
+INSERT INTO `litige_registre` (`CODEVRAC`, `CODELITIGE`) VALUES
+	(1, 1);
+/*!40000 ALTER TABLE `litige_registre` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. membre
+CREATE TABLE IF NOT EXISTS `membre` (
+  `CODECIVILE` int(11) NOT NULL,
+  `CODEORGANISATION` int(11) NOT NULL,
+  `ESTDIRIGENT` tinyint(1) NOT NULL,
+  PRIMARY KEY (`CODECIVILE`,`CODEORGANISATION`),
+  KEY `FK_MEMBRE_MEMBRE2_TORGANIS` (`CODEORGANISATION`),
+  CONSTRAINT `FK_MEMBRE_MEMBRE2_TORGANIS` FOREIGN KEY (`CODEORGANISATION`) REFERENCES `torganisation` (`CODEORGANISATION`),
+  CONSTRAINT `FK_MEMBRE_MEMBRE_TCIVILE` FOREIGN KEY (`CODECIVILE`) REFERENCES `tcivile` (`CODECIVILE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.membre : ~0 rows (environ)
+/*!40000 ALTER TABLE `membre` DISABLE KEYS */;
+/*!40000 ALTER TABLE `membre` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. mission_rapport
+CREATE TABLE IF NOT EXISTS `mission_rapport` (
+  `CODERAPPORT` int(11) NOT NULL,
+  `CODEMISSION` int(11) NOT NULL,
+  PRIMARY KEY (`CODERAPPORT`,`CODEMISSION`),
+  KEY `FK_MISSION__MISSION_R_TMISSION` (`CODEMISSION`),
+  CONSTRAINT `FK_MISSION__MISSION_R_TMISSION` FOREIGN KEY (`CODEMISSION`) REFERENCES `tmissions` (`CODEMISSION`),
+  CONSTRAINT `FK_MISSION__MISSION_R_TRAPPORT` FOREIGN KEY (`CODERAPPORT`) REFERENCES `trapport` (`CODERAPPORT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.mission_rapport : ~3 rows (environ)
+/*!40000 ALTER TABLE `mission_rapport` DISABLE KEYS */;
+INSERT INTO `mission_rapport` (`CODERAPPORT`, `CODEMISSION`) VALUES
+	(1, 1),
+	(2, 2),
+	(3, 3);
+/*!40000 ALTER TABLE `mission_rapport` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. rapport_crise
+CREATE TABLE IF NOT EXISTS `rapport_crise` (
+  `CODERAPPORT` int(11) NOT NULL,
+  `CODECRISE` int(11) NOT NULL,
+  `HISTORIQUEDATE` date DEFAULT NULL,
+  PRIMARY KEY (`CODERAPPORT`,`CODECRISE`),
+  KEY `FK_RAPPORT__RAPPORT_C_TCRISE` (`CODECRISE`),
+  CONSTRAINT `FK_RAPPORT__RAPPORT_C_TCRISE` FOREIGN KEY (`CODECRISE`) REFERENCES `tcrise` (`CODECRISE`),
+  CONSTRAINT `FK_RAPPORT__RAPPORT_C_TRAPPORT` FOREIGN KEY (`CODERAPPORT`) REFERENCES `trapport` (`CODERAPPORT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.rapport_crise : ~0 rows (environ)
+/*!40000 ALTER TABLE `rapport_crise` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rapport_crise` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. satisfaction_rapport
+CREATE TABLE IF NOT EXISTS `satisfaction_rapport` (
+  `CODESATISFACTION` int(11) NOT NULL,
+  `CODERAPPORT` int(11) NOT NULL,
+  PRIMARY KEY (`CODESATISFACTION`,`CODERAPPORT`),
+  KEY `FK_SATISFAC_SATISFACT_TRAPPORT` (`CODERAPPORT`),
+  CONSTRAINT `FK_SATISFAC_SATISFACT_TRAPPORT` FOREIGN KEY (`CODERAPPORT`) REFERENCES `trapport` (`CODERAPPORT`),
+  CONSTRAINT `FK_SATISFAC_SATISFACT_TSATISFA` FOREIGN KEY (`CODESATISFACTION`) REFERENCES `tsatisfaction` (`CODESATISFACTION`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.satisfaction_rapport : ~0 rows (environ)
+/*!40000 ALTER TABLE `satisfaction_rapport` DISABLE KEYS */;
+/*!40000 ALTER TABLE `satisfaction_rapport` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. satisfaction_registre
+CREATE TABLE IF NOT EXISTS `satisfaction_registre` (
+  `CODEVRAC` int(11) NOT NULL,
+  `CODESATISFACTION` int(11) NOT NULL,
+  PRIMARY KEY (`CODEVRAC`,`CODESATISFACTION`),
+  CONSTRAINT `FK_SATISFAC_SATISFACT_TREGISTR` FOREIGN KEY (`CODEVRAC`) REFERENCES `tregistre` (`CODEVRAC`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.satisfaction_registre : ~0 rows (environ)
+/*!40000 ALTER TABLE `satisfaction_registre` DISABLE KEYS */;
+/*!40000 ALTER TABLE `satisfaction_registre` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. sniveaugravite
+CREATE TABLE IF NOT EXISTS `sniveaugravite` (
+  `CODEGRAVITE` int(11) NOT NULL AUTO_INCREMENT,
+  `VALEURGRAVITE` int(11) NOT NULL,
+  `NOMGRAVITE` varchar(32) NOT NULL,
+  PRIMARY KEY (`CODEGRAVITE`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.sniveaugravite : ~5 rows (environ)
+/*!40000 ALTER TABLE `sniveaugravite` DISABLE KEYS */;
+INSERT INTO `sniveaugravite` (`CODEGRAVITE`, `VALEURGRAVITE`, `NOMGRAVITE`) VALUES
+	(1, 1, 'Même pas mal'),
+	(2, 2, 'Grave'),
+	(3, 3, 'Super Grave'),
+	(4, 4, 'Gravissime'),
+	(5, 5, 'Cataclysmique');
+/*!40000 ALTER TABLE `sniveaugravite` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. sniveauurgence
+CREATE TABLE IF NOT EXISTS `sniveauurgence` (
+  `CODEURGENCE` int(11) NOT NULL AUTO_INCREMENT,
+  `NIVEAUXURGENCE` int(11) NOT NULL,
+  `NATUREURGENCE` varchar(32) NOT NULL,
+  PRIMARY KEY (`CODEURGENCE`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.sniveauurgence : ~5 rows (environ)
+/*!40000 ALTER TABLE `sniveauurgence` DISABLE KEYS */;
+INSERT INTO `sniveauurgence` (`CODEURGENCE`, `NIVEAUXURGENCE`, `NATUREURGENCE`) VALUES
+	(1, 1, 'Peut attendre'),
+	(2, 2, 'Faut y aller'),
+	(3, 3, 'Ouh, la, la !'),
+	(4, 4, 'Critique'),
+	(5, 5, 'Fin du monde');
+/*!40000 ALTER TABLE `sniveauurgence` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. stypecrise
+CREATE TABLE IF NOT EXISTS `stypecrise` (
+  `CODETYPECRISE` int(11) NOT NULL AUTO_INCREMENT,
+  `NOMTYPECRISE` varchar(32) NOT NULL,
+  PRIMARY KEY (`CODETYPECRISE`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.stypecrise : ~4 rows (environ)
+/*!40000 ALTER TABLE `stypecrise` DISABLE KEYS */;
+INSERT INTO `stypecrise` (`CODETYPECRISE`, `NOMTYPECRISE`) VALUES
+	(1, 'Signalement d\'un suspect'),
+	(2, 'Déclaration de dégats'),
+	(3, 'Préjudice'),
+	(4, 'Litige');
+/*!40000 ALTER TABLE `stypecrise` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. stypelitige
+CREATE TABLE IF NOT EXISTS `stypelitige` (
+  `CODETYPELITIGE` int(11) NOT NULL AUTO_INCREMENT,
+  `NOMTYPELITIGE` varchar(32) NOT NULL,
+  PRIMARY KEY (`CODETYPELITIGE`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.stypelitige : ~6 rows (environ)
+/*!40000 ALTER TABLE `stypelitige` DISABLE KEYS */;
+INSERT INTO `stypelitige` (`CODETYPELITIGE`, `NOMTYPELITIGE`) VALUES
+	(1, 'Financier'),
+	(2, 'Relationnel'),
+	(3, 'Immobilier'),
+	(4, 'Préjudice moral'),
+	(5, 'Handicap Physique'),
+	(6, 'Décès');
+/*!40000 ALTER TABLE `stypelitige` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. s_identifier
+CREATE TABLE IF NOT EXISTS `s_identifier` (
+  `IDROLE` int(11) NOT NULL,
+  `CODECIVILE` int(11) NOT NULL,
+  `LOGINUSER` char(40) DEFAULT NULL,
+  `LOGINPWD` char(40) DEFAULT NULL,
+  PRIMARY KEY (`IDROLE`,`CODECIVILE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.s_identifier : ~0 rows (environ)
+/*!40000 ALTER TABLE `s_identifier` DISABLE KEYS */;
+/*!40000 ALTER TABLE `s_identifier` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tadresse
+CREATE TABLE IF NOT EXISTS `tadresse` (
+  `CODEADRESSE` int(11) NOT NULL AUTO_INCREMENT,
+  `NUMERIQUEADRESSE` varchar(64) NOT NULL,
+  `CODEPOSTAL` varchar(5) NOT NULL,
+  `VILLE` varchar(32) NOT NULL,
+  PRIMARY KEY (`CODEADRESSE`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tadresse : ~9 rows (environ)
+/*!40000 ALTER TABLE `tadresse` DISABLE KEYS */;
+INSERT INTO `tadresse` (`CODEADRESSE`, `NUMERIQUEADRESSE`, `CODEPOSTAL`, `VILLE`) VALUES
+	(1, '125\r\n', '49410', 'St Florent'),
+	(2, '1476756', '76100', 'Rouen'),
+	(3, '14', '76000', 'Rouen'),
+	(4, '32 Rahoon Road', '75214', 'Galway'),
+	(5, '26 Rue de la monnaie', '84200', 'Carpentras'),
+	(6, '11 Charleville Road', '14254', 'Londres'),
+	(7, '55 Place de l\'Etoile', '75000', 'Paris'),
+	(8, '44 Porcherie de la campagne odorante', '76360', 'Barentin'),
+	(9, '52 rue du machin chose,', '76360', 'Barentin');
+/*!40000 ALTER TABLE `tadresse` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tcivile
+CREATE TABLE IF NOT EXISTS `tcivile` (
+  `CODECIVILE` int(11) NOT NULL AUTO_INCREMENT,
+  `CODEADRESSE` int(11) NOT NULL,
+  `CODESUPER` int(11) DEFAULT NULL,
+  `NOMCIVILE` varchar(32) NOT NULL,
+  `PRENOMCIVILE` varchar(32) NOT NULL,
+  `CIVILITERCIVILE` smallint(6) DEFAULT NULL,
+  `DATENAISSANCE` date NOT NULL,
+  `DATEDECES` date DEFAULT NULL,
+  `COMMENTAIRECIVIL` varchar(4096) DEFAULT NULL,
+  `DATEAJOUTCIVIL` date NOT NULL,
+  `DATEDERNIERMODIFCIVIL` date DEFAULT NULL,
+  `TELCIVIL` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`CODECIVILE`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tcivile : ~6 rows (environ)
+/*!40000 ALTER TABLE `tcivile` DISABLE KEYS */;
+INSERT INTO `tcivile` (`CODECIVILE`, `CODEADRESSE`, `CODESUPER`, `NOMCIVILE`, `PRENOMCIVILE`, `CIVILITERCIVILE`, `DATENAISSANCE`, `DATEDECES`, `COMMENTAIRECIVIL`, `DATEAJOUTCIVIL`, `DATEDERNIERMODIFCIVIL`, `TELCIVIL`) VALUES
+	(1, 1, NULL, 'Maillard', 'Valentin', 0, '2002-04-12', NULL, NULL, '2019-04-16', NULL, NULL),
+	(2, 3, NULL, 'Quedeville', 'Tony', 0, '1983-04-16', NULL, NULL, '2019-04-16', NULL, NULL),
+	(3, 2, NULL, 'Couerbe', 'Christophe', 0, '1996-04-16', NULL, NULL, '2019-04-16', NULL, NULL),
+	(4, 2, NULL, 'Bellenoue', 'Antoine', 0, '2005-04-16', NULL, NULL, '2018-04-16', NULL, NULL),
+	(5, 8, NULL, 'Autrui', 'Porcinet', 0, '1991-05-20', '2019-03-21', 'Une fâcheuse tendance à tout bouffer et sent mauvais. Accepte en cas de décès de faire dons de son corps à la charcuterie.', '2017-01-10', NULL, NULL),
+	(6, 9, NULL, 'Quedeville', 'Mother', 1, '1941-01-12', NULL, 'Vieille dame à roulette', '2019-03-10', NULL, NULL);
+/*!40000 ALTER TABLE `tcivile` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tcrise
+CREATE TABLE IF NOT EXISTS `tcrise` (
+  `CODECRISE` int(11) NOT NULL AUTO_INCREMENT,
+  `CODETYPECRISE` int(11) NOT NULL,
+  `NOMCRISE` varchar(32) NOT NULL,
+  `DETAILCRISE` varchar(4096) DEFAULT NULL,
+  PRIMARY KEY (`CODECRISE`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tcrise : ~3 rows (environ)
+/*!40000 ALTER TABLE `tcrise` DISABLE KEYS */;
+INSERT INTO `tcrise` (`CODECRISE`, `CODETYPECRISE`, `NOMCRISE`, `DETAILCRISE`) VALUES
+	(1, 4, 'Plus d\'anchois', 'C\'est la crise sur le gâteau !'),
+	(2, 1, 'Découvert de Mad Christophe', 'Coincé dans la cage de ses oies pendant 3 jours, il a due en sacrifier une pour survivre.'),
+	(3, 2, 'Un cochon dans l\'espace', 'L\'Avenger Speeder Cochon en charge d\'intervenir pour sauver le citoyen attaqué par un alien aurait volontairement négligé sa tâche pour satisfaire un insassiable besoin de se nourrir. Le porcin aurait mordu les cuisses de la mère de la victime. La pauvre dame a du être amputé du reste de ses deux jambes.');
+/*!40000 ALTER TABLE `tcrise` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tincidents
+CREATE TABLE IF NOT EXISTS `tincidents` (
+  `CODEINCIDENT` int(11) NOT NULL AUTO_INCREMENT,
+  `CODECIVILE` int(11) NOT NULL,
+  `CODEORGANISATION` int(11) NOT NULL,
+  `CODEADRESSE` int(11) NOT NULL,
+  `TITREINCIDENT` varchar(32) NOT NULL,
+  `DESCRIPTIONINCIDENT` varchar(4096) NOT NULL,
+  `SUIVIEINCIDENT` tinyint(4) NOT NULL,
+  PRIMARY KEY (`CODEINCIDENT`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tincidents : ~3 rows (environ)
+/*!40000 ALTER TABLE `tincidents` DISABLE KEYS */;
+INSERT INTO `tincidents` (`CODEINCIDENT`, `CODECIVILE`, `CODEORGANISATION`, `CODEADRESSE`, `TITREINCIDENT`, `DESCRIPTIONINCIDENT`, `SUIVIEINCIDENT`) VALUES
+	(1, 1, 1, 4, 'Fuite d\'eau', 'Robinet qui fuite', 0),
+	(2, 4, 3, 2, 'Pizza brûlée', 'Cricri a fait bruler la pizza d\'Antoine', 0),
+	(3, 2, 2, 5, 'Attaque d\'Alien', 'Un citoyen contaminé se fait dévorer le visage par un alien sorti de sa bouche', 1);
+/*!40000 ALTER TABLE `tincidents` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tlitige
+CREATE TABLE IF NOT EXISTS `tlitige` (
+  `CODELITIGE` int(11) NOT NULL AUTO_INCREMENT,
+  `CODETYPELITIGE` int(11) NOT NULL,
+  `COUTLITIGE` float(8,2) DEFAULT NULL,
+  PRIMARY KEY (`CODELITIGE`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tlitige : ~6 rows (environ)
+/*!40000 ALTER TABLE `tlitige` DISABLE KEYS */;
+INSERT INTO `tlitige` (`CODELITIGE`, `CODETYPELITIGE`, `COUTLITIGE`) VALUES
+	(1, 1, 5780.00),
+	(2, 5, 12.00),
+	(3, 6, 10.00),
+	(4, 3, 5.25),
+	(5, 2, 100.00),
+	(6, 4, 1.00);
+/*!40000 ALTER TABLE `tlitige` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tmissions
+CREATE TABLE IF NOT EXISTS `tmissions` (
+  `CODEMISSION` int(11) NOT NULL AUTO_INCREMENT,
+  `CODEGRAVITE` int(11) NOT NULL,
+  `CODEURGENCE` int(11) DEFAULT NULL,
+  `NATURE` varchar(32) NOT NULL,
+  `TITRE` varchar(64) NOT NULL,
+  `DATEDEBUTMISSION` date NOT NULL,
+  `DATEFINMISSION` date NOT NULL,
+  `INFOCOMMENTAIRE` varchar(4092) NOT NULL,
+  PRIMARY KEY (`CODEMISSION`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tmissions : ~4 rows (environ)
+/*!40000 ALTER TABLE `tmissions` DISABLE KEYS */;
+INSERT INTO `tmissions` (`CODEMISSION`, `CODEGRAVITE`, `CODEURGENCE`, `NATURE`, `TITRE`, `DATEDEBUTMISSION`, `DATEFINMISSION`, `INFOCOMMENTAIRE`) VALUES
+	(1, 1, 3, 'Urgence Piazziolo', 'Mission Pizza', '2018-04-16', '2019-04-16', 'Livrer une pizza, mais pas trop cuit, svp...'),
+	(2, 4, 4, 'Sauvetage de citoyen', 'Mission Alien', '2018-04-16', '2019-04-16', 'Rien a faire, c\'est fichu !'),
+	(3, 5, 1, 'Noyade', 'Mission Titanic', '2015-04-16', '2019-04-16', 'Gloup, gloup !'),
+	(4, 2, 12, 'Projet Java', 'Avenger service', '2019-03-13', '2019-04-18', 'Votre mission, si vous l\'acceptez (et si non, en fait, vous ne pouvez pas refuser), est de coder un CRM (Customer Relation Management... In English) pour des personnages imaginaires, et complètement fictifs dotés de supers pouvoirs et vêtus de manières assez voyante, voire outrageante (au moins quand ils sont en mode super-héros). Accessoirement, et communément appelés "Avengers", ces individus ont la fâcheuse manie, de sauver le monde en faisant moultes dégâts ! AïE ! ( [ { Les maladroits ! } ] ) C\'est pour cette raison, que leur chef a décidé d\'évaluer la qualité des services rendus à la population civile.');
+/*!40000 ALTER TABLE `tmissions` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. torganisation
+CREATE TABLE IF NOT EXISTS `torganisation` (
+  `CODEORGANISATION` int(11) NOT NULL AUTO_INCREMENT,
+  `CODEADRESSE` int(11) NOT NULL,
+  `NOMORGANISATION` varchar(32) NOT NULL,
+  `DATEDERNIREMODIFORGANISATION` date DEFAULT NULL,
+  `COMMENTAIREORGANISATION` varchar(4096) DEFAULT NULL,
+  `DATEJOUTORGANISATION` date DEFAULT NULL,
+  PRIMARY KEY (`CODEORGANISATION`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.torganisation : ~9 rows (environ)
+/*!40000 ALTER TABLE `torganisation` DISABLE KEYS */;
+INSERT INTO `torganisation` (`CODEORGANISATION`, `CODEADRESSE`, `NOMORGANISATION`, `DATEDERNIREMODIFORGANISATION`, `COMMENTAIREORGANISATION`, `DATEJOUTORGANISATION`) VALUES
+	(1, 7, 'Natoub&Co', '2019-04-16', NULL, NULL),
+	(2, 5, 'Solar System', '2018-04-16', 'Brilliant', NULL),
+	(3, 2, 'La Bande à Cricri', '1843-04-16', NULL, NULL),
+	(4, 1, 'Super héros', '2013-02-13', 'Super fort', NULL),
+	(5, 2, 'Super Flic', '2014-07-30', 'Super rapide, Super pevers', NULL),
+	(6, 3, 'Ligue des supers en plastique', '2017-01-21', 'Super méable, Super petit mais costo', NULL),
+	(7, 4, 'Biomans', '1992-06-09', 'Super rouge, bleu, jaune, vert, rose', NULL),
+	(8, 8, 'Les cochons dans l\'espace', '2017-06-07', 'Super costo, Super rose, Super couillu, Super mais pas tant que ça ! A moitier débile, Super lourd, Super moche, Super laxatif, Super affamé', NULL),
+	(9, 2, 'Commité des magiciens nazes', '2018-01-18', 'Super magnétique, Super electrique, Super lourd, Super ennuyeux', NULL);
+/*!40000 ALTER TABLE `torganisation` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. trapport
+CREATE TABLE IF NOT EXISTS `trapport` (
+  `CODERAPPORT` int(11) NOT NULL AUTO_INCREMENT,
+  `DETAIL` text NOT NULL,
+  PRIMARY KEY (`CODERAPPORT`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.trapport : ~3 rows (environ)
+/*!40000 ALTER TABLE `trapport` DISABLE KEYS */;
+INSERT INTO `trapport` (`CODERAPPORT`, `DETAIL`) VALUES
+	(1, 'Echec'),
+	(2, 'Bravo !'),
+	(3, 'Oui !');
+/*!40000 ALTER TABLE `trapport` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tregistre
+CREATE TABLE IF NOT EXISTS `tregistre` (
+  `CODEVRAC` int(11) NOT NULL AUTO_INCREMENT,
+  `CHEMINVRAC` text NOT NULL,
+  PRIMARY KEY (`CODEVRAC`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tregistre : ~2 rows (environ)
+/*!40000 ALTER TABLE `tregistre` DISABLE KEYS */;
+INSERT INTO `tregistre` (`CODEVRAC`, `CHEMINVRAC`) VALUES
+	(1, 'C:\\Workbench\\Java\\projet-java\\projet-avenger\\Marvel\\public\\images\\TêteaToto.JPG'),
+	(2, 'C:\\Workbench\\Java\\projet-java\\projet-avenger\\Marvel\\public\\images\\Speeder cochon.jpg');
+/*!40000 ALTER TABLE `tregistre` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. trole
+CREATE TABLE IF NOT EXISTS `trole` (
+  `IDROLE` int(11) NOT NULL AUTO_INCREMENT,
+  `LIBROLE` char(40) DEFAULT NULL,
+  PRIMARY KEY (`IDROLE`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.trole : ~4 rows (environ)
+/*!40000 ALTER TABLE `trole` DISABLE KEYS */;
+INSERT INTO `trole` (`IDROLE`, `LIBROLE`) VALUES
+	(1, 'Administrateur'),
+	(2, 'Redacteur'),
+	(3, 'Héros'),
+	(4, 'Vilain');
+/*!40000 ALTER TABLE `trole` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tsatisfaction
+CREATE TABLE IF NOT EXISTS `tsatisfaction` (
+  `CODESATISFACTION` int(11) NOT NULL AUTO_INCREMENT,
+  `NOTEGLOBAL` int(11) DEFAULT NULL,
+  `COMMENTAIRESATISFACTION` varchar(4096) DEFAULT NULL,
+  PRIMARY KEY (`CODESATISFACTION`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tsatisfaction : ~1 rows (environ)
+/*!40000 ALTER TABLE `tsatisfaction` DISABLE KEYS */;
+INSERT INTO `tsatisfaction` (`CODESATISFACTION`, `NOTEGLOBAL`, `COMMENTAIRESATISFACTION`) VALUES
+	(1, 6, 'Plusieurs internautes déclarent avoir assister à la scène en direct sur les réseaux sociaux. La mère de la victime à alerter le Service Advenger.');
+/*!40000 ALTER TABLE `tsatisfaction` ENABLE KEYS */;
+
+-- Export de la structure de la table avenger. tsuper
+CREATE TABLE IF NOT EXISTS `tsuper` (
+  `CODESUPER` int(11) NOT NULL AUTO_INCREMENT,
+  `CODECIVILE` int(11) NOT NULL,
+  `POUVOIRSUPER` varchar(32) NOT NULL,
+  `POINTFAIBLESUPER` varchar(32) NOT NULL,
+  `SCORESUPER` int(11) NOT NULL,
+  `COMMENTAIRESUPER` varchar(4096) DEFAULT NULL,
+  PRIMARY KEY (`CODESUPER`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+-- Export de données de la table avenger.tsuper : ~2 rows (environ)
+/*!40000 ALTER TABLE `tsuper` DISABLE KEYS */;
+INSERT INTO `tsuper` (`CODESUPER`, `CODECIVILE`, `POUVOIRSUPER`, `POINTFAIBLESUPER`, `SCORESUPER`, `COMMENTAIRESUPER`) VALUES
+	(1, 2, '14', '12', 1745, NULL),
+	(2, 4, '18', '7', 1247, NULL);
+/*!40000 ALTER TABLE `tsuper` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
