@@ -1,0 +1,130 @@
+/* -------------------------------------------
++++++++++++++++++  CHARTE  +++++++++++++++++++
+------------------------------------------- */
+
+@font-face {
+    font-family: 'Prompt-Regular';
+    src: url("/public/polices/Prompt/Prompt-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Ribeye-Regular';
+    src: url("/public/polices/Ribeye/Ribeye-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Michroma';
+    src: url("/public/polices/Michroma/Michroma.ttf");
+}
+
+@font-face {
+    font-family: 'Monoton';
+    src: url("/public/polices/Monoton/Monoton-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'ShareTechMono-Regular';
+    src: url("/public/polices/Share_Tech_Mono/ShareTechMono-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'SixCaps';
+    src: url("/public/polices/Six_Caps/SixCaps.ttf");
+}
+
+@font-face {
+    font-family: 'NovaMono';
+    src: url("/public/polices/Nova_Mono/NovaMono.ttf");
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url("/public/polices/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Acme';
+    src: url("/public/polices/Acme/Acme-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Didact-Gothic';
+    src: url("/public/polices/Didact_Gothic/DidactGothic-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Gafata';
+    src: url("/public/polices/Gafata/Gafata-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Grand-Hotel';
+    src: url("/public/polices/Grand_Hotel/GrandHotel-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Gruppo';
+    src: url("/public/polices/Gruppo/Gruppo-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Play';
+    src: url("/public/polices/Play/Play-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url("/public/polices/Orbitron/Orbitron-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Righteous';
+    src: url("/public/polices/Righteous/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Audiowide';
+    src: url("/public/polices/Audiowide/Audiowide-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'ProstoOne';
+    src: url("/public/polices/Prosto_One/ProstoOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'FasterOne';
+    src: url("/public/polices/Faster_One/FasterOne-Regular.ttf");
+}
+
+
+/* ----------------- Colors ---------------- */
+/* Thème : Capitain Marvel :https://www.schemecolor.com/captain-marvel-colors.php */
+/* Dark pastel red : #CC4224 - rgb(204, 66, 36) */
+/* Safety Yellow : #F3D403 - rgb(243, 212, 3) */
+/* Celtic Blue : #2A75B3 - rgb(42, 117, 179) */
+/* Black : #000000 - rgb(0, 0, 0) */
+
+/* Vert-Hulk Pantone : rgb(141, 155, 60); */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Bauhaus 93";
+}
+
+p, a, li {
+    font-family: "Prompt-Regular";
+}
+
+input, label, button, SELECT {
+    font-family: "Prompt-Regular";
+}
+
+ul {
+    list-style:none;
+}
+
+p {
+    font-family: "Prompt-Regular";
+}
+
+

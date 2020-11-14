@@ -1,0 +1,302 @@
+/* -------------------------------------------
++++++++++++++++++  TOP NAV  +++++++++++++++++
+------------------------------------------- */
+
+/* nav est la barre de menu */
+nav {
+    /* Permet de fixer la barre de menu en haut de l'écran pour ne pas
+    qu'elle bouge quand on scroll */
+    position: fixed;
+    /* La barre reste au dessus du contenu si le z-index du contenu est
+    inférieur */
+    z-index: 10;
+    /* La barre est collée au sommet à droite et à gauche du viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    /* Couleur de fond */
+    background-color: rgb(0, 0, 0);
+    padding: 0.8rem 0.5rem 0 0.5rem;
+    /* Permet de coller la barre de menu sur le bord du viewport, en haut à gauche et à droite */
+    margin: -15px;
+}
+
+/* ul est une liste et li sont ses éléments. display: inline; permet de les avoir sur une ligne et
+non pas les un en dessous des autres */
+ul.nav-list li {
+    font-size: 0.8rem;
+    display: inline;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-left: 0.675rem;
+    color: rgb(255, 255, 255);
+}
+
+ul.nav-list li a {
+    color: rgb(255, 255, 255);
+    /* Retire le soulignement aux liens */
+    text-decoration: none;
+}
+
+
+/* -------------------------------------------
+++++++++++++++  MAIN-CONTAINER  ++++++++++++++
+------------------------------------------- */
+
+.content-page_test {
+    background-image: url('/public/images/wall-street_74658-19.jpg');
+    background-position: center;
+    background-size: cover;
+    z-index: 1;
+    /* background-color: rgba(25,142,212,0.1); */
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 1rem 1rem 0rem 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-title {
+    min-height: 5rem;
+    max-height: 5rem;
+}
+
+.main-section .aside {
+    min-height: 0.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.main-section {
+    width: 80%;
+}
+
+.aside {
+    width: 15%;
+    padding: 2rem 1rem 2rem 1rem;
+    /* border-style: dotted; */
+}
+
+.article {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+    margin-left: 1%;
+    margin-right: 1%;
+    padding: 2rem 2rem 2rem 2rem;
+}
+
+ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+ul.titre-h li {
+    display: inline;
+}
+
+.formulaire {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 255, 255);
+    padding: 1rem 2rem 2rem 2rem;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.formulaire label {
+    display:block;
+    padding-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.formulaire label > span{
+    display: inline-block;
+    float: left;
+    min-width: 35%;
+}
+.formulaire input[type=text],
+.formulaire input[type=email],
+.formulaire input[type=datetime-local] {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0.3rem;
+    width: 65%;
+    outline: none;
+    font-style: italic;
+    height: 1.45rem;
+}
+
+.formulaire input[type=email],
+.formulaire input[type=datetime-local] {
+    cursor: pointer;
+}
+
+.formulaire input[type=radio],
+.formulaire input[type=checkbox] {
+    margin: 0 0 0 -2rem;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.tic-tac-box {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tic-tac-radio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(243, 212, 3)
+}
+
+.formulaire textarea{
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0.3rem;
+    width: 65%;
+    overflow: hidden;
+    resize:none;
+    height: 5rem;
+}
+
+.formulaire textarea:hover,
+.formulaire input[type=text]:hover,
+.formulaire input[type=email]:hover
+{
+    background: rgba(243, 212, 3, 0.5)
+}
+
+
+/* ------------------------------------------
++++++++++++++++++  BUTTONS  +++++++++++++++++
+------------------------------------------- */
+
+/* Affichage normal du bouton de class="bouton" */
+.bouton {
+    /* Paramétrage du texte */
+    font-family: "Ink Free";
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    text-align: center;
+    padding: 0 0.5rem 0.1rem 0.5rem;
+    /* Paramétrage du fond */
+    /* Ajouter une image de fond au bouton :
+    background-image: url("/public/images/favicon.png"); */
+    background-color: rgb(255, 255, 255);
+    border-style: none;
+    border-radius: 0.5rem;
+    border-width: 0;
+    /* comportement du curseur quand il passe sur le bouton */
+    cursor: pointer;
+}
+
+/* Voir comment ejecter le border quand le bouton est cliqué
+.bouton:visited  {
+    border-style: none;
+    border-width: 0;
+}
+*/
+.bouton-basique {
+    font-family: "NovaMono";
+    letter-spacing: -0.075rem;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.3);
+    min-width: 6rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Conserve les comportements de bouton mais récupère de
+nouveaux comportements  pour les class="bouton bouton-sauvegarde" */
+.bouton.bouton-sauvegarde {
+    color: rgb(255, 255, 255);
+    background-color: rgb(42, 117, 179);
+    padding: 29px 15px;
+    border-radius: 50%;
+}
+
+/* Comportement du bouton lorsque la souris passe dessus */
+.bouton.bouton-sauvegarde:hover,
+.bouton.bouton-sauvegarde:focus {
+    background-color: rgba(42, 117, 179, 0.7);
+}
+
+/* Comportement du bouton lorsqu'il est cliqué */
+.bouton.bouton-sauvegarde:active {
+     background-color: rgb(243, 212, 103);
+     /* border: 2px solid rgba(0, 0, 0, 0.9); */
+ }
+
+.bouton-affiche {
+    color: rgb(255, 255, 255);
+    background-color: rgb(141, 155, 60);
+    padding: 1.3rem;
+    border-radius: 70% 0 70% 0;
+}
+
+.bouton-supprime {
+    color: rgb(255, 255, 255);
+    background-color: rgb(204, 66, 36);
+    padding: 1.2rem;
+    border-radius: 1rem;
+}
+
+.button-modifie {
+    color: rgb(255, 255, 255);
+    background-color: rgb(243, 212, 3);
+    padding: 1.6rem 1.2rem 1rem 1.2rem;
+    border-radius: 2rem 2rem 0.6rem 0.6rem;
+}
+
+/* ------------------------------------------
+++++++++++++++  MEDIAQUERIES  +++++++++++++++
+------------------------------------------- */
+
+@media (max-width: 768px) {
+    .main-section {
+        width: 100%;
+    }
+    .aside {
+        display: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .main-section {
+        width: 100%;
+    }
+    .aside {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .aside {
+
+
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .aside {
+
+    }
+
+}

@@ -1,0 +1,23 @@
+body{
+    background-color:#AAF;
+}
+#main{
+    width:400px;
+    padding:30px;
+    margin:auto;
+    background-color:#EEE;
+}
+ul{
+    list-style-type:none;
+}
+h1{
+    margin-top:0;
+}
+
+.Geolocalisation {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 5px white;
+    margin: 1em 45em 1em 0em;
+    padding: 1em 1em 1em 1em;
+}

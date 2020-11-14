@@ -1,0 +1,26 @@
+.photo-crise,
+.photo-litige {
+    border: 1px white solid;
+    box-shadow: 10px 10px 20px rgba(0,0,0,1);
+    max-width: 60%;
+    height: auto;
+    border-radius: 0.3rem;
+}
+.photo-crise:hover,
+.photo-litige:hover {
+    box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+}
+
+#button-hide-suspect {
+    display: none;
+}
+#button-hide-degat {
+    display: none;
+}
+#button-hide-prejudice {
+    display: none;
+}
+#button-hide-litige {
+    display: none;
+}
+

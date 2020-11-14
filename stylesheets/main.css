@@ -1,0 +1,722 @@
+@font-face {
+	font-family: 'Prompt-Regular';
+	src: url("/public/polices/Prompt/Prompt-Regular.ttf"); }
+
+@font-face {
+	font-family: 'Monoton';
+	src: url("/public/polices/Monoton/Monoton-Regular.ttf");
+}
+
+@font-face {
+	font-family: 'Gruppo';
+	src: url("/public/polices/Gruppo/Gruppo-Regular.ttf");
+}
+
+@font-face {
+	font-family: 'NovaMono';
+	src: url("/public/polices/Nova_Mono/NovaMono.ttf");
+}
+
+@font-face {
+	font-family: 'Orbitron';
+	src: url("/public/polices/Orbitron/Orbitron-Regular.ttf");
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Orbitron";
+	color: rgba(255, 255, 255, 0.9);
+}
+
+h1:hover {
+	text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+h5:hover {
+	text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+p, a, li, th, td {
+	font-family: "Gruppo";
+}
+
+input, label, textarea, button, SELECT {
+	font-family: "Gruppo";
+}
+
+
+
+/* -------------------------------------------
++++++++++++++++++  TOP NAV  +++++++++++++++++
+------------------------------------------- */
+
+/* nav est la barre de menu */
+/* Nav temporaire, intégrer la nav de Valentin */
+
+nav {
+	color: white;
+	/* Permet de fixer la barre de menu en haut de l'écran pour ne pas
+    qu'elle bouge quand on scroll */
+	position: Fixed;
+	/* La barre reste au dessus du contenu si le z-index du contenu est
+    inférieur */
+	z-index: 10;
+
+	/* La barre est collée au sommet à droite et à gauche du viewport */
+	top: -1.2rem;
+
+	right: 0;
+	/* Couleur de fond */
+	background-color: rgb(0, 0, 0);
+	padding: 0rem 0rem 0 0rem;
+	/* Permet de coller la barre de menu sur le bord du viewport, en haut à gauche et à droite */
+	margin: -1rem;
+}
+
+nav > ul{
+	margin:0rem;
+	padding:0px;
+    padding-left: 10%;
+	list-style-type: none;
+}
+
+nav > ul > li{
+	float: left;
+	margin-left:1rem;
+	margin-right:1rem;
+	margin-top:2rem;
+	margin-bottom:2rem;
+	padding:3px;
+}
+nav > ul > li:hover{
+	background-color: rgba(0,0,0,1);
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+	border-style: solid;
+	border: 1px white solid;
+	border-radius: 0.3rem;
+}
+
+.titreMenu{
+	color: rgb(255,255,255);
+}
+#icone{
+    min-width: 1rem;
+}
+
+nav > ul::after {
+	content:"";
+	display:block;
+	clear:both;
+}
+
+nav a{
+	display: block;
+	text-decoration: none;
+	font-size: 1.1rem;
+	color: rgb(127,127,127);
+}
+nav a:hover{
+	font-weight: bold;
+}
+
+.submenu {
+	display: none;
+}
+.submenu li a:hover{
+	font-weight: bold;
+	color: rgb(255,255,255);
+}
+
+nav li:hover .submenu{
+	display: inline;
+	position: relative;
+	top: 50%;
+	left: 0px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+/* ul est une liste et li sont ses éléments. display: inline; permet de les avoir sur une ligne et
+non pas les un en dessous des autres */
+ul.nav-list li {
+	font-size: 10px;
+	display: inline;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-left: 0.675rem;
+	color: rgb(255, 255, 255);
+}
+
+ul.nav-list li a {
+	color: rgb(255, 255, 255);
+	/* Retire le soulignement aux liens */
+	text-decoration: none;
+	float:left;
+}
+
+
+/* -------------------------------------------
+++++++++++++++  MAIN-CONTAINER  ++++++++++++++
+------------------------------------------- */
+/* généralité */
+.main-title {
+	font-size: 2rem !important;
+	text-align: center;
+	margin-bottom: 5rem;
+}
+
+.main-title:hover {
+	text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.sub-title {
+	margin: 3rem 0;
+}
+
+.main-section {
+	min-height: 0.2rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.interloupe {
+	text-align: center;
+	color: rgba(255, 255, 255, 0.3);
+}
+
+.content-page {
+	background-position: center;
+	background-size: cover ;
+	z-index: 1;
+	margin-left: -15px;
+	margin-right: -15px;
+	padding: 1rem 1rem 0rem 1rem;
+	background-attachment: fixed;
+	box-sizing: content-box;
+	height: 100%;
+	margin-top: -1.5rem;
+}
+
+
+/* accueil */
+.content-page#page-accueil {
+	background-image: url('/public/images/blade-runner.jpg');
+	background-position: center;
+	background-size: cover ;
+	min-height: 100%;
+
+}
+/* indentité */
+.content-page#page-identite-create {
+	background-image: url('/public/images/photo-ville-nuit-151183.jpg');
+}
+.content-page#page-identite-showCitoyen {
+	background-image: url('/public/images/wall-street_74658-19.jpg');
+}
+.content-page#page-identite-showAdvenger {
+	background-image: url('/public/images/london-4k-buildings-nightscape-uk.jpg');
+}
+.content-page#page-identite-showEnnemi {
+	background-image: url('/public/images/il-pleut.jpg');
+}
+/* incident */
+.content-page#page-incident-create {
+	background-image: url('/public/images/la-cata.jpg');
+}
+.content-page#page-incident-show {
+	background-image: url('/public/images/la-cata.jpg');
+}
+/* mission */
+.content-page#page-mission-show {
+	background-image: url('/public/images/apocalyptic.jpg');
+}
+.content-page#page-mission-create {
+	background-image: url('/public/images/apocalypse-4k-buildings-destruction-skyscrapers.jpg');
+}
+/* crise */
+.content-page#page-crise-create {
+	background-image: url('/public/images/la-ville-la-nuit.jpg');
+}
+.content-page#page-crise-show {
+	background-image: url('/public/images/la-ville-la-nuit.jpg');
+}
+/* satisfaction */
+.content-page#page-satisfaction-create {
+	background-image: url('/public/images/dubai1.jpg');
+}
+.content-page#page-satisfaction-show {
+	background-image: url('/public/images/dubai1.jpg');
+}
+/* statistique */
+.content-page#page-statistique-show {
+	background-image: url('/public/images/thumb-1920-14517.jpg');
+}
+
+
+/* ------------------------------------------
+++++++++++++++++  ARTICLES  +++++++++++++++++
+------------------------------------------- */
+
+
+.article {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: rgb(255, 255, 255);
+	margin-left: 15%;
+	margin-right: 15%;
+	padding: 2rem 2rem 2rem 2rem;
+}
+
+.article p > span{
+	font-weight: bolder;
+	font-size: larger;
+}
+
+.image {
+	text-align: center;
+}
+
+.photo {
+	border: 1px white solid;
+	box-shadow: 10px 10px 20px rgba(0,0,0,1);
+	max-width: 50%;
+	margin:5%;
+	height: auto;
+	border-radius: 0.3rem;
+}
+.photo-identite {
+	text-align: center;
+	border-radius: 0.3rem;
+}
+.photo:hover {
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.video {
+	border: 1px white solid;
+	box-shadow: 10px 10px 20px rgba(0,0,0,1);
+	max-width: 100%;
+	height: auto;
+	box-shadow: 5px 5px 10px black;
+	text-align: center;
+	border-radius: 0.3rem;
+}
+.video:hover {
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#map_canvas:hover {
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+.gm-style {
+    font-family: "Gruppo";
+}
+
+
+/* ------------------------------------------
++++++++++++++++  FORMULAIRES  +++++++++++++++
+------------------------------------------- */
+
+.formulaire {
+	background-color: rgba(0, 0, 0, 0.7);
+	color: rgb(255, 255, 255);
+	padding: 1rem 2rem 2rem 2rem;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.formulaire label {
+	display: block;
+	padding-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+.formulaire label > span{
+	display: block;
+	float: left;
+	min-width: 35%;
+}
+.formulaire input[type=text],
+.formulaire input[type=email],
+.formulaire input[type=datetime-local],
+.formulaire input[type=number],
+.formulaire input[type=password],
+.formulaire select
+{
+	color: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.3);
+	border: none;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 0.3rem;
+	width: 65%;
+	outline: none;
+	font-style: italic;
+	height: 1.45rem;
+	box-shadow: 0 5px 5px rgba(0,0,0,1);
+}
+.formulaire input[type=number]{
+	width: 15%;
+}
+
+.formulaire textarea{
+	color: rgb(255, 255, 255);
+	text-align: left;
+	font-style: italic;
+	background: rgba(255, 255, 255, 0.3);
+	outline: none;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	border-radius: 0.3rem;
+	overflow: hidden;
+	resize:none;
+	height: 5rem;
+	box-shadow: 0 5px 5px rgba(0,0,0,1);
+}
+
+.formulaire select#Multi-Liste {
+	height: auto;
+}
+
+.formulaire OPTION, optgroup{
+	font-style: normal;
+	background: rgb(0, 0, 0);
+}
+
+.formulaire input[type=radio],
+.formulaire input[type=checkbox]
+{
+	margin-top: 1.7rem;
+	box-shadow: 0 5px 5px rgba(0,0,0,1);
+}
+
+.formulaire input[type=radio]:hover,
+.formulaire input[type=checkbox]:hover,
+.formulaire input[type=number]:hover
+{
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.formulaire textarea:hover,
+.formulaire input[type=text]:hover,
+.formulaire input[type=email]:hover,
+.formulaire input[type=datetime-local]:hover,
+.formulaire input[type=password]:hover,
+.formulaire select:hover
+{
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.formulaire textarea:focus,
+.formulaire input[type=text]:focus,
+.formulaire input[type=email]:focus,
+.formulaire input[type=datetime-local]:focus
+{
+	background: rgba(255, 255, 255, 0.8);
+	color: black;
+}
+
+#formulaire-page-accueil{
+    min-height: 35rem;
+}
+
+.formulaire-secondaire {
+    margin-top: 0rem;
+}
+
+.formulaire-cocher {
+	display: flex;
+	flex-direction: row;
+	margin: 1.7rem 0;
+}
+
+.formulaire-radio {
+	width: 50%;
+}
+
+.formulaire-radio-item {
+	width: 40%;
+}
+
+.formulaire-radio span {
+	min-height: 12rem;
+	height: 12rem;
+}
+
+
+/* ------------------------------------------
++++++++++++++++++  TABLEAUX  +++++++++++++++++
+------------------------------------------- */
+
+.tableau1 {
+	min-height: 29rem;
+}
+
+.tableau1 table {
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 1);
+}
+
+.tableau1 tr
+{
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-style: italic;
+	background: rgba(255, 255, 255, 0.1);
+	outline: none;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	margin-bottom: 1rem;
+	overflow: hidden;
+	resize:none;
+	height: 5rem;
+	border-collapse: collapse;
+}
+
+.list-item {
+	border-collapse: collapse;
+
+	border-radius: 0.3rem;
+	margin-top: 2rem;
+}
+
+.tableau1 td,
+.tableau1 th
+{
+	border-collapse: collapse;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.tableau1 table:hover {
+	box-shadow: 0 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.tableau1 tr:hover
+{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tableau {
+	min-height: 29rem;
+	text-align: center;
+}
+
+.tableau table {
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 1);
+}
+
+.tableau tr
+{
+	color: rgb(255, 255, 255);
+	text-align: center;
+	font-style: italic;
+	background: rgba(255, 255, 255, 0.1);
+	outline: none;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	margin-bottom: 1rem;
+	overflow: hidden;
+	resize:none;
+	height: 5rem;
+	border-collapse: collapse;
+}
+
+.list-item {
+	border-collapse: collapse;
+
+	border-radius: 0.3rem;
+	margin-top: 2rem;
+}
+
+.tableau td,
+.tableau th
+{
+	border-collapse: collapse;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+
+.tableau th{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+tr:hover
+{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+	/* ------------------------------------------
+    +++++++++++++++++  BUTTONS  +++++++++++++++++
+    ------------------------------------------- */
+
+/* Un bouton "lien", on enlève le soulignement sous le lien */
+a.bouton {
+	text-decoration: none;
+	box-shadow: 0 5px 5px rgba(0,0,0,1);
+}
+
+/* Affichage normal du bouton de class="bouton" */
+.bouton {
+	/* Paramétrage du texte */
+	font-family: "Gruppo";
+	color: rgb(0, 0, 0);
+	font-size: 1rem;
+	text-align: center;
+	padding: 0 0.5rem 0.1rem 0.5rem;
+	/* Paramétrage du fond */
+	/* Ajouter une image de fond au bouton :
+    background-image: url("/public/images/favicon.png"); */
+	background-color: rgb(255, 255, 255);
+	border-style: none;
+	border-radius: 0.5rem;
+	border-width: 0;
+	/* comportement du curseur quand il passe sur le bouton */
+	cursor: pointer;
+	box-shadow: 0 5px 5px rgba(0,0,0,1);
+}
+.bouton:hover {
+	box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+
+/* Voir comment ejecter le border quand le bouton est cliqué
+.bouton:visited  {
+    border-style: none;
+    border-width: 0;
+}
+*/
+.bouton-basique {
+	font-weight: 500;
+	color: rgb(255, 255, 255);
+	font-size: 1.1rem;
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	background-color: rgba(255, 255, 255, 0.3);
+	min-width: 10rem;
+	margin-bottom: 0.2rem;
+}
+
+.bouton-basique:hover {
+	background-color: rgba(243, 212, 103, 0.6);
+}
+
+.bouton-basique:active {
+	background-color: rgba(243, 212, 103, 0.9);
+}
+
+.bouton-valider:hover {
+	background-color: rgba(141, 155, 60, 0.6);
+}
+
+.bouton-valider:active {
+	background-color: rgba(141, 155, 60, 0.9);
+}
+
+.bouton-annuler:hover {
+	background-color: rgba(204, 66, 36, 0.6);
+}
+
+.bouton-annuler:active {
+	background-color: rgba(204, 66, 36, 0.9);
+}
+
+/* icone */
+.bouton-icone {
+    font-family: FontAwesome;
+	/* Paramétrage du texte */
+	color: rgb(255, 255, 255);
+	font-size: 1.2rem;
+	text-align: center;
+	padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+	/* Paramétrage du fond */
+	background-color: rgba(255, 255, 255,0.3);
+	border: 1px solid rgb(255,255,255);
+	border-radius: 0.5rem;
+	/* comportement du curseur quand il passe sur le bouton */
+	cursor: pointer;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+}
+
+.bouton-icone:hover {
+	box-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+}
+
+.bouton-icone-modifier:hover {
+	background-color: rgba(243, 212, 103, 0.6);
+
+}
+
+.bouton-icone-valider:hover {
+	background-color: rgba(141, 155, 60, 0.6);
+}
+
+.bouton-icone-supprimer:hover {
+	background-color: rgba(204, 66, 36, 0.6);
+}
+
+
+{
+    font-family: FontAwesome;
+}
+
+
+/* Conteneur à bouton */
+	.bouton-boite {
+		margin: 4rem 0;
+		text-align: center;
+	}
+
+/* radio bouton */
+	/* Masquer le bouton radio d'origine */
+	input[type=radio]{
+		display: none;
+	}
+	/* Affichage par défaut du bouton radio personnalisé */
+	input[type=radio] + label:before {
+		background: rgba(0,0,0,0.5);
+		border: 1px solid rgb(255,255,255);
+		border-radius: 30%;
+		margin-top: -3px;
+		margin-right: 6px;
+		display: inline-block;
+		vertical-align: middle;
+		content: '';
+		width: 17px;
+		height: 13px;
+	}
+	/* Affichage du bouton radio personnalisé quand il est sélectionné */
+	input[type=radio]:checked + label:before {
+		background: rgba(255,255,255,0.5);
+		border-color: rgb(255,255,255);
+		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+	}
+	input[type=radio]:hover  + label:before{
+		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+	}
+	.element{
+		margin-bottom:4px;
+	}
+	label{
+		cursor:pointer;
+	}
+
+
+
+/* Partie qui est cachée et qui apparaît avec le bouton */
+	#button-hide {
+		display: none;
+	}
+
+/* crise */
+	#button-hide-suspect,
+	#button-hide-degat,
+	#button-hide-prejudice,
+	#button-hide-litige {
+		display: none;
+	}
+
+/* identite */
+	#button-hide-info-advenger,
+	#button-hide-organisation,
+    #button-hide-Citoyen,
+    #button-hide-Advenger,
+    #button-hide-Ennemi {
+		display: none;
+	}
+
+/* Statistique */
+	#population-chart {
+		border-radius: 0.3rem;
+	}

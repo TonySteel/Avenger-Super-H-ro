@@ -1,0 +1,554 @@
+@media (max-width: 455px) {
+    h1 {
+        font-size: 0.9rem;
+    }
+    p, a, label, input, textarea, select, nav {
+        font-size: 0.775rem;
+    }
+    nav {
+        max-height: 3.3rem;
+        left: 0.5rem;
+    }
+    nav > ul > li{
+        min-width: 41%;
+    }
+    nav a, i{
+        font-size: 1rem;
+    }
+    nav > ul{
+        padding-left: 0%;
+    }
+
+    .masquage1,
+    .masquage2,
+    .masquage3{
+        display: none;
+    }
+
+    .ligneMenu {
+        display: none;
+    }
+    .burgerMenu {
+        display: inline;
+    }
+
+
+    .main-title h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0rem;
+    }
+    .sub-title {
+        margin: 0;
+    }
+    .article, .formulaire {
+        margin-left: -1.7rem;
+        margin-right: -1.7rem;
+        padding: 2rem 1.5rem 2rem 1.5rem;
+    }
+
+    .formulaire label > span{
+        float: left;
+        min-width: 100%;
+    }
+    .formulaire input[type=text],
+    .formulaire input[type=email],
+    .formulaire input[type=datetime-local],
+    .formulaire textarea,
+    .formulaire select,
+    .formulaire input[type=password],
+    .formulaire select#Multi-Liste{
+        width: 100%;
+    }
+    .formulaire input[type=radio],
+    .formulaire input[type=checkbox]
+    {
+        margin-top: 1rem;
+    }
+
+    .formulaire-cocher {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+    .formulaire-radio {
+        width: 100%;
+    }
+
+    .formulaire-radio-item {
+        width: 90%;
+    }
+    .formulaire-radio span {
+        min-height: 1.3rem;
+        height: 1.3rem;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 10rem;
+        width:21.5rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+
+    .bouton-basique {
+        font-size: 0.7rem;
+        min-width: 7rem;
+    }
+}
+
+
+@media (min-width: 455px) and (max-width: 570px) {
+    .formulaire-radio {
+        width: 100%;
+    }
+    .formulaire-radio-item {
+        width: 55%;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 11rem;
+        width:22.5rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+
+    .masquage1,
+    .masquage2,
+    .masquage3{
+        display: none;
+    }
+}
+
+@media (min-width: 571px) and (max-width: 768px) {
+    .formulaire-radio {
+        width: 100%;
+    }
+    .formulaire-radio-item {
+        width: 43%;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 12rem;
+        width:30rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+}
+
+@media (min-width: 455px) and (max-width: 768px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+    p, a, label, input, textarea, select {
+        font-size: 0.85rem;
+    }
+
+    nav {
+        max-height: 3.3rem;
+        left: 0.5rem;
+    }
+    nav > ul > li{
+        min-width: 41%;
+    }
+    nav > ul{
+        padding-left: 0%;
+    }
+    nav a,i{
+        font-size: 1rem;
+    }
+
+
+    .ligneMenu {
+        display: none;
+    }
+    .burgerMenu {
+        display: inline;
+    }
+
+    .masquage2,
+    .masquage3{
+        display: none;
+    }
+
+    .main-section {
+        width: 100%;
+    }
+    .aside {
+        display: none;
+    }
+    .main-title h1 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    .sub-title {
+        margin: 0.5rem 0;
+    }
+    .article, .formulaire {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+
+    .formulaire label > span{
+        display: inline-block;
+        float: left;
+        min-width: 39%;
+    }
+    .formulaire input[type=text],
+    .formulaire input[type=email],
+    .formulaire input[type=datetime-local],
+    .formulaire textarea,
+    .formulaire select,
+    .formulaire input[type=password],
+    .formulaire select#Multi-Liste{
+        width: 59%;
+    }
+    .formulaire input[type=radio],
+    .formulaire input[type=checkbox]
+    {
+        margin-top: 1rem;
+    }
+    .formulaire-radio span {
+        min-height: 1.4rem;
+        height: 1.4rem;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 12rem;
+        width:23rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+
+    .bouton-basique {
+        font-size: 0.75rem;
+        min-width: 7.5rem;
+
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+
+    h1 {
+        font-size: 1.5rem;
+    }
+    p, a, label, input, textarea, select {
+        font-size: 0.91rem;
+    }
+
+    nav {
+        max-height: 3.3rem;
+        left: 0.5rem;
+    }
+    nav > ul > li{
+        min-width: 9.1%;
+    }
+    nav a{
+        font-size: 0.9rem;
+    }
+
+    .masquage3{
+        display: none;
+    }
+    .burgerMenu {
+        display: none;
+    }
+
+    .main-section {
+        width: 100%;
+    }
+
+    .aside {
+        display: none;
+    }
+
+    .main-title h1 {
+        font-size: 3rem;
+        margin-bottom: 2.7rem;
+    }
+    .sub-title {
+        margin: 0.8rem 0;
+    }
+    .article, .formulaire {
+        margin-left: 7%;
+        margin-right: 7%;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+
+    .formulaire label > span {
+        display: inline-block;
+        float: left;
+        min-width: 35%;
+    }
+
+    .formulaire input[type=text],
+    .formulaire input[type=email],
+    .formulaire input[type=datetime-local],
+    .formulaire textarea,
+    .formulaire select,
+    .formulaire input[type=password],
+    .formulaire select#Multi-Liste{
+        width: 61%;
+    }
+
+    .formulaire input[type=radio],
+    .formulaire input[type=checkbox] {
+        margin-top: 1.2rem;
+    }
+
+    .formulaire-radio {
+        width: 100%;
+    }
+
+    .formulaire-radio-item {
+        width: 45%;
+    }
+
+    .formulaire-radio span {
+        min-height: 1.6rem;
+        height: 1.6rem;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 15rem;
+        width:37.5rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+
+    .bouton-basique {
+        font-size: 0.8rem;
+        min-width: 8rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    p, a, label, input, textarea, select {
+        font-size: 1.11rem;
+    }
+
+    nav {
+        max-height: 3.5rem;
+        left: 0.5rem;
+    }
+    nav > ul > li{
+        min-width: 9.9%;
+    }
+    nav a{
+        font-size: 1.2rem;
+    }
+
+    .masquage3{
+        display: none;
+    }
+    .burgerMenu {
+        display: none;
+    }
+
+    .main-title h1 {
+        font-size: 3.5rem;
+        margin-bottom: 3.5rem;
+    }
+    .sub-title {
+        margin: 1rem 0;
+    }
+    .article, .formulaire {
+        margin-left: 10%;
+        margin-right: 10%;
+        padding: 2rem 1rem 2rem 1rem;
+    }
+    .formulaire label > span{
+        display: inline-block;
+        float: left;
+        min-width: 30%;
+    }
+    .formulaire input[type=text],
+    .formulaire input[type=email],
+    .formulaire input[type=datetime-local],
+    .formulaire textarea,
+    .formulaire select,
+    .formulaire input[type=password],
+    .formulaire select#Multi-Liste{
+        width: 67%;
+    }
+
+    .formulaire input[type=radio],
+    .formulaire input[type=checkbox] {
+        margin-top: 1.5rem;
+    }
+
+    .formulaire-radio {
+        width: 100%;
+    }
+
+    .formulaire-radio-item {
+        width: 45%;
+    }
+
+    .formulaire-radio span {
+        min-height: 1.8rem;
+        height: 1.8rem;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 18rem;
+        width:44rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+
+    .bouton-basique {
+        font-size: 0.9rem;
+        min-width: 8.5rem;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px){
+    h1 {
+        font-size: 2rem;
+    }
+    p, a, label, input, textarea, select {
+        font-size: 1.2741rem;
+    }
+
+    nav {
+        max-height: 3.5rem;
+        left: 0.5rem;
+    }
+    nav > ul > li{
+        min-width: 11.1%;
+    }
+    nav a{
+        font-size: 1.2rem;
+    }
+
+
+    .burgerMenu {
+        display: none;
+    }
+
+    .main-title h1 {
+        font-size: 4.8rem;
+        margin-bottom: 4.5rem;
+    }
+    .sub-title {
+        margin: 1.5rem 0;
+    }
+    .formulaire label > span{
+        display: inline-block;
+        float: left;
+        min-width: 28%;
+    }
+    .formulaire input[type=text],
+    .formulaire input[type=email],
+    .formulaire input[type=datetime-local],
+    .formulaire textarea,
+    .formulaire select,
+    .formulaire input[type=password],
+    .formulaire select#Multi-Liste{
+        width: 71%;
+    }
+    .formulaire-radio {
+        width: 50%;
+    }
+    .formulaire-radio-item {
+        width: 39%;
+    }
+    .formulaire-radio span {
+        min-height: 2rem;
+        height: 2rem;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 20rem;
+        width:46rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+
+    .bouton-basique {
+        font-size: 1rem;
+        min-width: 9rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    h1 {
+        font-size: 2.1rem;
+    }
+    p, a, label, input, textarea, select {
+        font-size: 1.3rem;
+    }
+
+    nav {
+        max-height: 3.7rem;
+        left: 0.5rem;
+    }
+    nav > ul > li{
+        min-width: 11.2%;
+    }
+    nav a{
+        font-size: 1.2rem;
+    }
+
+    .burgerMenu {
+        display: none;
+    }
+
+    .main-title h1 {
+        font-size: 4.8rem;
+    }
+
+    .formulaire label > span{
+        display: inline-block;
+        float: left;
+        min-width: 28%;
+    }
+    .formulaire input[type=text],
+    .formulaire input[type=email],
+    .formulaire input[type=datetime-local],
+    .formulaire textarea,
+    .formulaire select,
+    .formulaire input[type=password],
+    .formulaire select#Multi-Liste{
+        width: 71%;
+    }
+    .formulaire-radio {
+        width: 50%;
+    }
+    .formulaire-radio-item {
+        width: 35%;
+    }
+
+    .formulaire-radio span {
+        min-height: 2rem;
+        height: 2rem;
+    }
+
+    #map_canvas {
+        border: 1px white solid;
+        box-shadow: 10px 10px 20px rgba(0,0,0,1);
+        height: 20rem;
+        width:50rem;
+        border-radius: 0.3rem;
+        position: relative;
+    }
+}
