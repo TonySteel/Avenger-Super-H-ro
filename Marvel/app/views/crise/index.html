@@ -1,0 +1,50 @@
+#{extends 'main.html' /}
+#{set title: 'Crise' /}
+
+<body onload="initialize()">
+
+<!-- Inclusion du fichier : views/nav.html -->
+#{include 'nav.html'/}
+
+<div class="content-page" id="page-mission-show">
+
+    <div class="main-section">
+
+        <!-- Article affichant la mission -->
+        <div class="article">
+
+            <!-- Inclusion du fichier : views/title.html -->
+            #{include 'title.html'/}
+
+            <p>Voici la liste des missions que vous avez à effectuer !</p>
+            <div class="tableau">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code Crise</th>
+                            <th>Type de crise</th>
+                            <th class="masquage1">Titre crise</th>
+                            <th class="masquage2">Litige</th>
+                            <th>Boutons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="list-item">
+                            <td>${idCrise}</td>
+                            <td>${TypeCrise}</td>
+                            <td class="masquage1">${TitreCrise}</td>
+                            <td class="masquage2">${TitreLitige}</td>
+                            <td>
+                                <a href=""><button class="bouton-icone bouton-icone-valider">&#xf06e;</button></a>
+                                <a href=""><button class="bouton-icone bouton-icone-modifier">&#xf040;</button></a>
+                                <a href=""><button class="bouton-icone bouton-icone-modifier">&#xf1f8;</button></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--end content-page -->
+</div>
+</body>

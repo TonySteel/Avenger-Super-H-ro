@@ -1,0 +1,89 @@
+#{extends 'main.html' /}
+#{set title: 'Citoyen' /}
+
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/identite.css'}">
+</head>
+
+<body onload="initialize()">
+
+    <!-- Inclusion du fichier : views/nav.html -->
+    #{include 'nav.html'/}
+
+    <div class="content-page" id="page-identite-showCitoyen">
+
+        <div class="main-section">
+
+            <!-- Article affichant la mission -->
+            <div class="article">
+
+                <!-- Inclusion du fichier : views/title.html -->
+            #{include 'title.html'/}
+
+                <h1 class="sub-title">Citoyen n°: 0001 </h1>
+
+                <div>
+                    <div class="article encadre">
+                        <div class="photo-identite">
+                            <img class="photo" src="/public/images/TêteaToto.jpg"/>
+                        </div>
+
+                        <p><span>Civilté :</span>
+                            Mr. </p>
+
+                        <p><span>Nom :</span>
+                            Quedeville</p>
+
+                        <p><span>Prénom :</span>
+                            Tony</p>
+
+                        <p><span>Pseudo :</span>
+                            Toto</p>
+
+                        <p><span>Email :</span>
+                            tony.quedeville@viacesi.fr</p>
+
+                        <p><span>Adresse :</span>
+                            Planète Terre, 52 rue du machin chose, 76360, Barentin</p>
+                    </div>
+
+
+                    <label for="Geolocalisation">
+                        <h5>Il est actuellement ici !</h5>
+                        <span>Géolocalisation</span>
+                        <button class="bouton bouton-basique" href="#" onclick="stopWatch()" type="button">Désactiver la géolocalisation</button>
+
+                        <div id="map_canvas"></div>
+
+                        <ul >
+                            <li>Latitude : <span id="lat"></span></li>
+                            <li>Longitude : <span id="long"></span></li>
+                            <li>Précision : <span id="prec"></span></li>
+                            <li>Date - Heure : <span id="time"></span></li>
+                        </ul>
+                    </label>
+
+                    <p><span>Date de naissance :</span>
+                        13/07/1972</p>
+
+                    <p><span>Date de décès : </span>
+                        21/03/2019</p>
+
+                    <div class="article-text">
+                        <p><span>Commentaire :</span></p>
+                        <p>Signe particulier : Contaminé par un tenia extra-terrestre.</p>
+                    </div>
+
+                <div class="interloupe">
+                    <p>-----------------------------------------------------------------</p>
+                </div>
+
+                    <div class="bouton-boite">
+                        <a class="bouton bouton-basique" href="@{identite.create()}">Modifier</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

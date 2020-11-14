@@ -1,0 +1,165 @@
+#{extends 'main.html' /}
+#{set title:'Mission' /}
+
+<body>
+
+<!-- Inclusion du fichier : views/nav.html -->
+#{include 'nav.html'/}
+
+    <div class="content-page" id="page-mission-create">
+
+        <div class="main-section">
+
+            <!-- Formulaire création de mission -->
+            <div class="formulaire">
+
+                <!-- Inclusion du fichier : views/title.html -->
+                #{include 'title.html'/}
+
+                <form action="" method="post">
+                    <h1 class="sub-title">Formulaire de mission</h1>
+                    <div>
+                        <label for="titre-mission">
+                            <span>Titre</span>
+                            <input type="text" id="titre-mission" name="Titre mission"/>
+                        </label>
+                        <label for="texte">
+                            <span>Incident responsable</span>
+                            <input type="text" name="Incident"/>
+                        </label>
+                        <label for="texte">
+                            <span>Nature de la mission</span>
+                            <input type="text" name="Nature mission"/>
+                        </label>
+                        <label for="text">
+                            <span>Description</span>
+                            <textarea id="text-description-mission" name="Description"></textarea>
+                        </label>
+
+                        <!-- Date -->
+                        <label for="datetime-local">
+                            <span>Date de début</span>
+                            <input type="datetime-local" name="Date début"/>
+                        </label>
+
+                        <label for="datetime-local">
+                            <span>Date de fin</span>
+                            <input type="datetime-local" name="Date fin"/>
+                        </label>
+
+                        <!-- Adresses -->
+                        <label for="text">
+                            <span>Adresse de départ</span>
+                            <input type="text" name="Adresse début"/>
+                        </label>
+
+                        <label for="text">
+                            <span>Adresse de la mission</span>
+                            <input type="text" name="Adresse mission"/>
+                        </label>
+
+                        <!-- Cases à cocher -->
+                        <div class="formulaire-cocher">
+                            <div class="formulaire-radio">
+                                <p>Niveau de gravité</p>
+                                <div class="formulaire-radio-item">
+                                    <input class="input-radio radio-mission" id="Même-pas-mal" type="radio" name="choixGravité"/>
+                                    <label class="label-radio" for="Même-pas-mal">Même pas mal</label>
+
+                                    <input class="input-radio radio-mission" id="Grave" type="radio" name="choixGravité"/>
+                                    <label class="label-radio" for="Grave">Grave</label>
+
+                                    <input class="input-radio radio-mission" id="Super-Grave" type="radio" name="choixGravité"/>
+                                    <label class="label-radio" for="Super-Grave">Super Grave</label>
+
+                                    <input class="input-radio radio-mission" id="Gravissime" type="radio" name="choixGravité"/>
+                                    <label class="label-radio" for="Gravissime">Gravissime</label>
+
+                                    <input class="input-radio radio-mission" id="Cataclysmique" type="radio" name="choixGravité"/>
+                                    <label class="label-radio" for="Cataclysmique">Cataclysmique</label>
+                                </div>
+                            </div>
+                            </br>
+
+                            <div class="formulaire-radio">
+                                <p>Niveau d'urgence</p>
+                                <div class="formulaire-radio-item">
+                                    <input class="input-radio radio-mission" id="Peut-attendre" type="radio" name="choixUrgence"/>
+                                    <label class="label-radio" for="Peut-attendre">Peut attendre</label>
+
+                                    <input class="input-radio radio-mission" id="Faut-y-aller" type="radio" name="choixUrgence"/>
+                                    <label class="label-radio" for="Faut-y-aller">Faut y aller</label>
+
+                                    <input class="input-radio radio-mission" id="Ouhlala" type="radio" name="choixUrgence"/>
+                                    <label class="label-radio" for="Ouhlala">Ouh, la, la !</label>
+
+                                    <input class="input-radio radio-mission" id="Critique" type="radio" name="choixUrgence"/>
+                                    <label class="label-radio" for="Critique">Critique</label>
+
+                                    <input class="input-radio radio-mission" id="Fin-du-monde" type="radio" name="choixUrgence"/>
+                                    <label class="label-radio" for="Fin-du-monde">Fin du monde</label>
+
+                                </div>
+                            </div>
+                            </br>
+                        </div>
+
+                        <!-- Bouton pour sauvegarder en base de données -->
+                        <div class="bouton-boite">
+                            <input class="bouton bouton-basique bouton-valider bouton-sauvegarde" type="submit" value="Valider" />
+                            <input class="bouton bouton-basique bouton-annuler bouton-sauvegarde" type="submit" value="Annuler" />
+                            <input class="bouton bouton-basique bouton-sauvegarde" type="submit" value="Afficher" />
+                            <button onClick="showRapport()" class="bouton bouton-basique" type="button" value="Rapport mission">Rapport mission</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="interloupe">
+                    <p>-----------------------------------------------------------------</p>
+                </div>
+            </div>
+
+            <!-- Formulaire rapport de mission -->
+            <div class="formulaire">
+                <form id="button-hide" method="post">
+                    <h1 class="sub-title">Rapport de mission</h1>
+                    <div>
+
+                        <!--
+                        <label for="texte">
+                            <span>Titre</span>
+                            <input type="text" name="Titre du rapport de mission"/>
+                        </label>
+                        <label for="datetime-local">
+                            <span>Date du rapport</span>
+                            <input type="datetime-local" name="Date rapport"/>
+                        </label>
+                        -->
+
+                        <label for="text">
+                            <span>Déroulement de la mission</span>
+                            <textarea id="text-déroulement-mission" name="Deroulement"></textarea>
+                        </label>
+
+                        <!--
+                        <label for="texte">
+                            <span>Crise</span>
+                            <input type="text" name="Crise"/>
+                        </label>
+                        -->
+
+                        <!-- Bouton pour sauvegarder en base de données -->
+                        <div class="bouton-boite">
+                            <input class="bouton bouton-basique bouton-valider bouton-sauvegarde" type="submit" value="Valider" />
+                            <input class="bouton bouton-basique bouton-annuler bouton-sauvegarde" type="submit" value="Annuler" />
+                            <input class="bouton bouton-basique bouton-sauvegarde" type="submit" value="Afficher" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <!--end content-page -->
+    </div>
+
+
+</body>

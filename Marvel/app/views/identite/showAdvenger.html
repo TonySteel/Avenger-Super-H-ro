@@ -1,0 +1,104 @@
+#{extends 'main.html' /}
+#{set title: 'Advenger' /}
+
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/identite.css'}">
+</head>
+
+<body onload="initialize()">
+
+    <!-- Inclusion du fichier : views/nav.html -->
+    #{include 'nav.html'/}
+
+    <div class="content-page" id="page-identite-showAdvenger">
+
+        <div class="main-section">
+
+            <!-- Article affichant la mission -->
+            <div class="article">
+
+                <!-- Inclusion du fichier : views/title.html -->
+            #{include 'title.html'/}
+
+                <h1 class="sub-title">Advenger n°: ${idCivil} </h1>
+
+                <div>
+                    <div class="article encadre">
+                        <div class="photo-identite">
+                            <img class="photo" src="/public/images/Speeder cochon.jpg"/>
+                        </div>
+
+                        <p><span>Civilité :</span>${civilite}</p>
+
+                        <p><span>Nom :</span>${Nom}</p>
+
+                        <p><span>Prénom :</span>${prenom}</p>
+
+                        <p><span>Pseudo :</span>${pseudo}</p>
+
+*{
+                        #{if civil.email != null}
+                            <p><span>Email :</span>${email}</p>
+                        #{/if}
+                        #{else}
+
+                        #{/else}
+}*
+                        <p><span>Date de naissance :</span>${DateNaissance}</p>
+
+                        <p><span>Date de décès : </span>${DateDeces}</p>
+
+                        <p><span>Adresse :</span>${adresse}</p>
+                    </div>
+
+
+                    <label for="Geolocalisation">
+                        <h5>Il est actuellement ici !</h5>
+                        <span>Géolocalisation</span>
+                        <button class="bouton bouton-basique" href="#" onclick="stopWatch()" type="button">Désactiver la géolocalisation</button>
+
+                        <div id="map_canvas"></div>
+
+                        <ul >
+                            <li>Latitude : <span id="lat"></span></li>
+                            <li>Longitude : <span id="long"></span></li>
+                            <li>Précision : <span id="prec"></span></li>
+                            <li>Date - Heure : <span id="time"></span></li>
+                        </ul>
+                    </label>
+
+                    <div class="article encadre">
+                        <p><span>Organisation :</span>${Organisation}</p>
+
+                        <div class="image">
+                            <img class="photo" src="/public/images/Cochon dans l'espace.jpg"/>
+                        </div>
+
+                        <p><span>Super pouvoir :</span>${SuperPouvoir}</p>
+
+                        <p><span>Point faible :</span>${Faiblesse}</p>
+
+                        <p><span>Score de satisfaction :</span>${Score}</p>
+                    </div>
+
+                    <div class="article-text">
+                        <p><span>Commentaire : </span>${commentaire}</p>
+
+                        <div class="photo-deces">
+                            <img class="photo" src="/public/images/cochonaille.jpg"/>
+                        </div>
+                    </div>
+
+                    <div class="interloupe">
+                        <p>-----------------------------------------------------------------</p>
+                    </div>
+
+                    <div class="bouton-boite">
+                        <a class="bouton bouton-basique" href="@{identite.create()}">Modifier</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

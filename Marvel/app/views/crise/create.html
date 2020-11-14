@@ -1,0 +1,168 @@
+#{extends 'main.html' /}
+#{set title:'Crise' /}
+
+<header>
+    <script src="@{'/public/javascripts/crise.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+</header>
+
+<body>
+#{include 'nav.html'/}
+
+    <div class="content-page" id="page-crise-create">
+
+        <div class="formulaire">
+        #{include 'title.html'/}
+            <form method="post">
+            <h1>Formulaire de déclaration :</h1>
+                <label for="texte">
+                    <span>Titre</span>
+                    <input type="text" name="Titre crise"/>
+                </label>
+
+                <label for="text">
+                    <span>Commentaire</span>
+                    <textarea id="Commentaire-crise" name="commentaire crise">C'est la crise sur le gâteau !</textarea>
+                </label>
+
+                <div >
+                    <label for="Photo-crise">
+                        <span>Photo de la crise</span>
+                        <img class="photo" src="/public/images/Cellule_de_crise_logo.jpg" />
+                    </label>
+                </div>
+
+                <label for="text">
+                    <h5>Type de crise</h5>
+                </label>
+            </form>
+        </div>
+
+        <div class="formulaire formulaire-secondaire"><!-- Signalement d'un suspect -->
+            <button class="bouton bouton-basique" onClick="showSuspect()" type="button" value="Suspect">Signalement d'un suspect</button>
+            <form id="button-hide-suspect" method="post">
+                <label for="suspect">
+                    <span>Suspect</span>
+                    <select name="Déclaration de suspect" size="1">
+                        <OPTION>  </OPTION>
+                        <OPTION>Citoyen Lambda</OPTION>
+                        <OPTION>Adveger Lambda</OPTION>
+                        <OPTION>Ennemi Lambda</OPTION>
+                    </select>
+                </label>
+            </form>
+        </div>
+
+    <!-- Déclaration de dégats -->
+        <div class="formulaire formulaire-secondaire">
+            <button class="bouton bouton-basique" onClick="showDegat()" type="button" value="Degat">Déclaration de dégats</button>
+            <form id="button-hide-degat" method="post">
+                <label for="Degat">
+                    <span>Type de dégats</span>
+                    <select name="Déclaration de dégats" size="1">
+                        <OPTION>  </OPTION>
+                        <OPTION>Dégât materiel</OPTION>
+                        <OPTION>Destruction totale d'infrastructure</OPTION>
+                        <OPTION>Catastrophe écologique</OPTION>
+                        <OPTION>Destruction planétaire totale</OPTION>
+                    </select>
+                </label>
+            </form>
+        </div>
+
+    <!-- Prejudice -->
+        <div class="formulaire formulaire-secondaire">
+            <button class="bouton bouton-basique" onClick="showPrejudice()" type="button" value="Prejudice">Prejudice</button>
+            <form id="button-hide-prejudice" method="post">
+                <label for="Victime">
+                    <span>Victime</span>
+                    <select name="Liste Type crise" size="1">
+                        <OPTION>  </OPTION>
+                        <OPTION>Citoyen Lambda</OPTION>
+                        <OPTION>Adveger Lambda</OPTION>
+                        <OPTION>Ennemi Lambda</OPTION>
+                    </select>
+                </label>
+
+                <label for="Type-prejudice">
+                    <span>Type de prejudice</span>
+                    <select name="Type prejudice" size="1">
+                        <OPTION>  </OPTION>
+                        <OPTION>Insulte</OPTION>
+                        <OPTION>Egratignure</OPTION>
+                        <OPTION>Blessure</OPTION>
+                        <OPTION>Amputation</OPTION>
+                        <OPTION>Décès</OPTION>
+                        <OPTION>Sucide</OPTION>
+                    </select>
+                </label>
+            </form>
+        </div>
+
+    <!-- Litige -->
+        <div class="formulaire formulaire-secondaire">
+            <button class="bouton bouton-basique" onClick="showLitige()" type="button" value="Litige">Litige</button>
+                <form id="button-hide-litige" method="post">
+                    <label for="texte">
+                        <span>Objet du litige</span>
+                        <input type="text" name="Titre litige"/>
+                    </label>
+
+                    <label for="Date-litige">
+                        <span>Date du litige</span>
+                        <input type="datetime-local" name="Date-litige"/>
+                    </label>
+
+                    <label for="Liste-litige">
+                        <span>Type de litige</span>
+                        <select name="Liste Type litige">
+                            <OPTION>  </OPTION>
+                            <OPTION> Financier </OPTION>
+                            <OPTION> Relationnel </OPTION>
+                            <OPTION> Immobilier</OPTION>
+                            <OPTION> Préjudice moral </OPTION>
+                            <OPTION> Handicap physique </OPTION>
+                            <OPTION> Décès </OPTION>
+                        </select>
+                    </label>
+
+                    <label for="Victime colaterale">
+                        <span>Victime colaterale</span>
+                        <select name="Victime colaterale" size="1">
+                            <OPTION>  </OPTION>
+                            <OPTION>Citoyen Lambda</OPTION>
+                            <OPTION>Adveger Lambda</OPTION>
+                            <OPTION>Ennemi Lambda</OPTION>
+                        </select>
+                    </label>
+
+                    <label for="texte">
+                        <span>Coût du litige (€)</span>
+                        <input type="number" name="Cout-litige" value="0.00"/>
+                    </label>
+
+                    <div >
+                        <label for="Photo-litige">
+                            <span>Photo du litige</span>
+                            <img class="photo" src="/public/images/Litige_logo.jpg" />
+                        </label>
+                    </div>
+                </form>
+        </div>
+
+
+    <!-- validation -->
+        <div class="formulaire formulaire-secondaire">
+            <label for="scales">Envoyer une notification
+                <input type="checkbox" id="scales" name="notification-crise"
+                       checked>
+            </label></br>
+
+            <div class="bouton-boite">
+                <input class="bouton bouton-basique bouton-valider bouton-sauvegarde" type="submit" value="Valider" />
+                <input class="bouton bouton-basique bouton-annuler bouton-sauvegarde" type="submit" value="Modifier" />
+                <input class="bouton bouton-basique bouton-sauvegarde" type="submit" value="Afficher" />
+            </div>
+
+        </div>
+    </div>
+</body>

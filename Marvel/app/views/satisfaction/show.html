@@ -1,0 +1,63 @@
+#{extends 'main.html' /}
+#{set title: 'Satisfaction' /}
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/satisfaction.css'}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+</head>
+
+<body>
+    <!-- Inclusion du fichier : views/nav.html -->
+    #{include 'nav.html'/}
+
+    <div class="content-page" id="page-satisfaction-show">
+
+        <div class="main-section">
+
+            <!-- Article affichant la mission -->
+            <div class="article">
+
+                <!-- Inclusion du fichier : views/title.html -->
+            #{include 'title.html'/}
+                <div>
+                    <h5>Mission</h5>
+                    <p>${TitreMission}</p>
+                    <h5>Description</h5>
+                    <p>${DescriptionMission}</p>
+                </div>
+
+                <div>
+                    <h5 class="sub-title">Enquète de satisfaction pour la mission n° ${idEnquete}</h5>
+                    <p>Note globale : ${NoteGlobale}</p>
+                </div>
+
+                <div class="chart">
+                    <canvas id="satisfaction-chart" width="1000" height="200"></canvas>
+                </div>
+
+                <div>
+                    <h5>Enquete de terrain</h5>
+                    <p>${Temoignage}</p>
+                </div>
+
+                <div>
+                    <h5>Revue de presse</h5>
+                </div>
+
+                <div class="article-presse">
+                    <p>${ArticleDePresse}</p>
+                </div>
+
+                <div>
+                    <h5>photos de presse</h5>
+                    <div class="image">
+                        <img class="photo" src="/public/images/Alien attack.jpg" />
+                        <img class="photo" src="/public/images/Vieille-a-roulettes.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end content-page -->
+    </div>
+
+</body>

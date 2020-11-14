@@ -1,0 +1,271 @@
+#{extends 'main.html' /}
+#{set title:"Fiche d'identité" /}
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/identite.css'}">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+</head>
+
+<body onload="initialize()">
+#{include 'nav.html'/}
+    <div class="content-page" id="page-identite-create">
+
+        <div class="main-section">
+            <div class="formulaire">
+                <div>
+                        #{include 'title.html'/}
+                        <h1>Formulaire d'inscription</h1>
+
+                        <div class="formulaire-cocher">
+                            <div class="formulaire-radio">
+                                <p>Civilite *</p>
+                                <div class="formulaire-radio-item">
+                                    <input type="radio" id="Mr" name="civilite" value="Mr." checked>
+                                    <label for="Mr">Mr.</label>
+
+                                    <input type="radio" id="Mme" name="civilite" value="Mme.">
+                                    <label for="Mme">Mme.</label>
+                                </div>
+                            </div>
+
+                            <div class="formulaire-radio">
+                                <p>Race *</p>
+                                <div class="formulaire-radio-item">
+                                    <input type="radio" id="Humain" name="race" value="Humain" checked>
+                                    <label for="Humain">Humain</label>
+
+                                    <input type="radio" id="Animal" name="race" value="Animal">
+                                    <label for="Animal">Animal</label>
+
+                                    <input type="radio" id="Creature" name="race" value="Creature">
+                                    <label for="Creature">Creature</label>
+
+                                    <input type="radio" id="Extra-terrestre" name="race" value="E.T.">
+                                    <label for="Extra-terrestre">E.T.</label>
+
+                                    <input type="radio" id="Androïd" name="race" value="Robot">
+                                    <label for="Androïd">Androïd</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label for="Nom">
+                            <span>Nom *</span>
+                            <input required type="text" name="Nom" value=""/>
+                        </label>
+
+                        <label for="Prenom">
+                            <span>Prenom *</span>
+                            <input required type="text" name="Prenom" value=""/>
+                        </label>
+
+                        <label for="photo">
+                            <span>Photo d'identité</span>
+                            <img class="photo" src="/public/images/Profils.jpg" />
+                        </label>
+
+                        <label for="Code-postal">
+                            <span>Code-postal *</span>
+                            <input required type="text" name="Code-postal" value=""/>
+                        </label>
+                        <label for="Ville">
+                            <span>Ville *</span>
+                            <input required type="text" name="Ville" value=""/>
+                        </label>
+                        <label for="Adresse">
+                            <span>Adresse *</span>
+                            <input required type="text" name="Adresse" value=""/>
+                        </label>
+
+
+                        <label for="Geolocalisation">
+                            <h5>Vous êtes ici !</h5>
+                            <span>Géolocalisation</span>
+                            <button class="bouton bouton-basique" href="#" onclick="stopWatch()" type="button">Désactiver  la géolocalisation</button>
+
+                            <div id="map_canvas"></div>
+
+                            <ul>
+                                <li>Latitude : <span id="lat"></span></li>
+                                <li>Longitude : <span id="long"></span></li>
+                                <li>Précision : <span id="prec"></span></li>
+                                <li>Date - Heure : <span id="time"></span></li>
+                            </ul>
+                        </label>
+
+
+                        <label for="Date-de-naissance">
+                            <span>Date de naissance *</span>
+                            <input required type="datetime-local" name="Date-de-naissance"/>
+                        </label>
+
+                        <label for="Date-de-deces">
+                            <span>Date de décés</span>
+                            <input type="datetime-local" name="Date-de-deces"/>
+                        </label>
+
+                        <label for="Nationalite">
+                            <span>Nationalite *</span>
+                            <select required name="Nationalite" size="1">
+                                <optgroup label="Planete Terre">
+                                    <OPTION>Angleterre
+                                    <OPTION selected="selected">France
+                                    <OPTION>Chine
+                                    <OPTION>Japon
+                                    <OPTION>USA
+                                    <OPTION>Russie
+                                    <OPTION>Allemagne
+                                    <OPTION>Italie
+                                    <OPTION>Espagne
+                                    <OPTION>Irlande
+
+                                <optgroup label="Planete Mars">
+                                    <OPTION>Tharsis
+                                    <OPTION>Marineris
+                                    <OPTION>Elysium
+                                    <OPTION>Planitia
+
+                                <optgroup label="Planete Jupiter">
+                                    <OPTION>Cassini
+                                    <OPTION>Tropopause
+                                    <OPTION>Setna
+                                    <OPTION>Arbitum
+
+                                <optgroup label="Planete Mercure">
+                                    <OPTION>Mercure
+                                    <OPTION>Pompéï
+                                    <OPTION>Emthèth
+                                    <OPTION>Eushta
+
+                                <optgroup label="Planete Uranus">
+                                    <OPTION>Trouduculdumonde
+                                    <OPTION>Hemorroïd
+                                    <OPTION>Teniahole
+                            </select>
+                        </label>
+
+                        <label for="Commentaire">
+                            <span>Commentaire</span>
+                            <textarea id="Commentaire" name="Commentaire">
+                            </textarea>
+                        </label>
+
+                        <button class="bouton bouton-basique" onClick="showInfoAdvenger()" type="button" value="info-advenger">
+                            Faites vous partie d'une organisation en tant qu'Advenger ?
+                        </button>
+                </div>
+            </div>
+
+            <div class="formulaire formulaire-secondaire">
+                <form id="button-hide-info-advenger" method="post">
+                    <h1>Informations complémentaires Advenger</h1>
+
+                    <label for="Organisation">
+                        <span>Organisation</span>
+                        <select name="Organisation" size="1">
+                            <OPTION>Super Héros
+                            <OPTION>Super Flic
+                            <OPTION>Ligue des supers en plastique
+                            <OPTION>Biomans
+                            <OPTION>Les cochons dans l'espace
+                            <OPTION>Commité des magiciens nazes
+                        </select>
+                    </label>
+
+                    <label for="Liste-Pouvoir">
+                        <span>Super pouvoirs</span>
+                        <select size="6" multiple name="Liste Pouvoir" id="Multi-Liste">
+                            <OPTION> Super costo </OPTION>
+                            <OPTION> Super trop fort </OPTION>
+                            <OPTION> Super rapide </OPTION>
+                            <OPTION> Super electrique </OPTION>
+                            <OPTION> Super magnétique </OPTION>
+                            <OPTION> Super ordinaire </OPTION>
+                            <OPTION> Super méable </OPTION>
+                            <OPTION> Super malin </OPTION>
+                            <OPTION> Super intelligent </OPTION>
+                            <OPTION> Super mathsup </OPTION>
+                            <OPTION> Super mentaliste </OPTION>
+                            <OPTION> Super magnifique </OPTION>
+                            <OPTION> Super rouge </OPTION>
+                            <OPTION> Super bleu </OPTION>
+                            <OPTION> Super jaune </OPTION>
+                            <OPTION> Super rose </OPTION>
+                            <OPTION> Super vert </OPTION>
+                            <OPTION> Super magique </OPTION>
+                            <OPTION> Super couillu </OPTION>
+                            <OPTION> Super position </OPTION>
+                            <OPTION> Super latif </OPTION>
+                            <OPTION> Super mais pas tant que ça ! </OPTION>
+                        </select>
+                    </label>
+
+                    <label for="Liste-Faiblesse">
+                        <span>Points faibles</span>
+                        <select size="6" multiple name="Liste Faiblesse" id="Multi-Liste">
+                            <OPTION> A moitier débile </OPTION>
+                            <OPTION> Carrement débile </OPTION>
+                            <OPTION> Super débile </OPTION>
+                            <OPTION> Super méchant </OPTION>
+                            <OPTION> Super faible </OPTION>
+                            <OPTION> Super lent </OPTION>
+                            <OPTION> Super lourd </OPTION>
+                            <OPTION> Super gros </OPTION>
+                            <OPTION> Super petit mais costo </OPTION>
+                            <OPTION> Super ennuyeux </OPTION>
+                            <OPTION> Super contagieux </OPTION>
+                            <OPTION> Super positoire </OPTION>
+                            <OPTION> Super laxatif </OPTION>
+                            <OPTION> Super mal au cul </OPTION>
+                            <OPTION> Super moche </OPTION>
+                            <OPTION> Super poilu </OPTION>
+                            <OPTION> Super pevers </OPTION>
+                            <OPTION> Super affamé </OPTION>
+                            <OPTION> Super cochon </OPTION>
+                            <OPTION> Super chaud lapin </OPTION>
+                            <OPTION> Super fatigué </OPTION>
+                            <OPTION> Pas Super du tout ... </OPTION>
+                        </select>
+                    </label>
+
+                    <label for="Score">
+                        <span>Score de satisfaction</span>
+                        <input type="number" name="Score" value="0"/>
+                    </label>
+
+                </form>
+            </div>
+
+            <form>
+                <div class="formulaire formulaire-secondaire">
+                    <div class="interloupe">
+                        <p>-----------------------------------------------------------------</p>
+                    </div>
+
+                    <p>* Renseignez ces champs pour la création de compte</p>
+                    <label for="Pseudo">
+                        <span>Pseudo (Login)</span>
+                        <input type="text" name="Pseudo" value=""/>
+                    </label>
+
+                    <!--<label for="Mail">
+                        <span>Mail</span>
+                        <input type="text" name="Mail" value=""/>
+                    </label>-->
+
+                    <label for="password"><span>Mot de passe</span></label>
+                    <input id="password" type="password" name="psw"/>
+                    <label for="password"><span>Confirmation </br> mot de passe</span></label>
+                    <input id="password" type="password" name="psw"/>
+
+                    <!-- Bouton pour sauvegarder en base de données -->
+                        <div class="bouton-boite">
+                            <a class="bouton bouton-basique bouton-valider" href="@{application.index()}">Enregistrer</a>
+                            <button class="bouton bouton-basique bouton-annuler">Annuler</button>
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="@{'/public/javascripts/identite.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+</body>

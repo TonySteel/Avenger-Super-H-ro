@@ -1,0 +1,89 @@
+#{extends 'main.html' /}
+#{set title: 'Mission' /}
+
+<body onload="initialize()">
+
+    <!-- Inclusion du fichier : views/nav.html -->
+    #{include 'nav.html'/}
+
+    <div class="content-page" id="page-mission-show">
+
+        <div class="main-section">
+
+        <!-- Article affichant la mission -->
+        <div class="article">
+
+            <!-- Inclusion du fichier : views/title.html -->
+            #{include 'title.html'/}
+
+                <h1 class="sub-title">Mission n°: ${idMission}</h1>
+                <div>
+                        <p><span>Incident responsable :</span>${idIncident}</p>
+
+                        <p><span>Nature de la mission :</span>${TitreIncident}</p>
+
+                    <div class="article-text">
+                        <p><span>Description :</span>${DescriptionMission}</p>
+                    </div>
+
+                    <!-- Date -->
+                    <p><span>Date de début de la mission : </span>${DateDebutMission}</p>
+
+                    <!-- Adresses -->
+
+                    <label for="Geolocalisation">
+                        <p><span>Lieu de la mission :</span></p>
+                        <span>Géolocalisation</span>
+                        <button class="bouton bouton-basique" href="#" onclick="stopWatch()" type="button">Désactiver  la géolocalisation</button>
+
+                        <div id="map_canvas"></div>
+
+                        <ul >
+                            <li>Latitude : <span id="lat"></span></li>
+                            <li>Longitude : <span id="long"></span></li>
+                            <li>Précision : <span id="prec"></span></li>
+                            <li>Date - Heure : <span id="time"></span></li>
+                        </ul>
+                    </label>
+
+
+                    <!-- Gravité -->
+                    <p><span>Gravité : </span>${NiveauGravite}</p>
+
+                    <!-- Urgence -->
+                    <p><span>Urgence : </span>${NiveauUrgence}</p>
+
+                    <!-- Bouton pour modifier -->
+                    <div class="bouton-boite">
+                        <button class="bouton bouton-basique" type="button" value="Modifier">Modifier</button>
+                        <button class="bouton bouton-basique" onClick="showRapport()" type="button" value="Rapport mission">Rapport mission</button>
+                    </div>
+                </div>
+            <div class="interloupe">
+                <p>-----------------------------------------------------------------</p>
+            </div>
+        </div>
+
+        <!-- Formulaire rapport de mission -->
+            <div class="article" id="button-hide">
+                <h1 class="sub-title">${TitreRapport}</h1>
+                <div>
+                    <!-- Date -->
+                    <p><span>Date du rapport : </span>${DateFinMission}</p>
+
+                    <div class="article-text">
+                        <p><span>Déroulement de la mission :</span>${ContenuRapport}</p>
+                    </div>
+
+                    <!-- Bouton pour sauvegarder en base de données -->
+                    <div class="bouton-boite">
+                        <a class="bouton bouton-basique" href="@{mission.create()}">Modifier</a>
+                        <a class="bouton bouton-basique" href="@{Crise.create()}">Signaler une crise</a>
+                        <a class="bouton bouton-basique" href="@{Satisfaction.create()}">Satisfation client</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end content-page -->
+    </div>
+</body>

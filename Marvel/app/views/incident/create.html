@@ -1,0 +1,63 @@
+#{extends 'main.html' /}
+#{set title:'Incident' /}
+
+<body>
+#{include 'nav.html'/}
+    <div class="content-page" id="page-incident-create">
+        <div class="main-section">
+            <div class="formulaire">
+                #{include 'title.html'/}
+
+                <form method="post">
+                    <h1>Formulaire de déclaration :</h1>
+                    <div>
+                        <label for="Titre">
+                            <span>Titre</span>
+                            <input required type="text" name="Nom"value=""/>
+                        </label>
+
+                        <label for="datetime-local">
+                            <span>Date de l'incident</span>
+                            <input type="datetime-local" name="Date incident"/>
+                        </label>
+
+                        <label for="Descriptif">
+                            <span>Description</span>
+                            <textarea id="Descriptif" name="Descriptif">
+
+                            </textarea>
+                        </label>
+
+                        <label for="Temoignage">
+                            <span>Témoignage</span>
+                            <textarea id="Temoignage" name="Temoignage">
+
+                            </textarea>
+                        </label>
+
+                        <div >
+                            <label for="Photo-incident">
+                                <span>Photo</span>
+                                <img class="photo" src="/public/images/Incident-Logo.png" />
+                            </label>
+                        </div>
+
+                        <label for="text">
+                            <span>Vidéo</span>
+                            <video class="video" width="520" height="440" controls>
+                                <source src="/public/video/.mp4" type="video/mp4">
+                                Votre navigateur fait une allergie à la balise vidéo.
+                            </video>
+                        </label>
+
+                        <div class="bouton-boite">
+                            <input class="bouton bouton-basique bouton-valider bouton-sauvegarde" type="submit" value="Valider" />
+                            <input class="bouton bouton-basique bouton-annuler bouton-sauvegarde" type="submit" value="Annuler" />
+                            <input class="bouton bouton-basique bouton-sauvegarde" type="submit" value="Afficher" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

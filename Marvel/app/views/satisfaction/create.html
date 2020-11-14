@@ -1,0 +1,71 @@
+#{extends 'main.html' /}
+#{set title:'Satisfaction' /}
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/satisfaction.css'}">
+</head>
+
+<body>
+
+    <!-- Inclusion du fichier : views/nav.html -->
+    #{include 'nav.html'/}
+
+    <div class="content-page" id="page-satisfaction-create">
+
+        <div class="main-section">
+            <div >
+                <form>
+                    <div class="formulaire">
+                        #{include 'title.html'/}
+                        <h1>Niveau de satisfaction</h1>
+
+                        <div class="formulaire-cocher">
+                            <label for="satisfaction">
+                                <div>
+                                    <input type="radio" id="Trés-satisfait" name="niveau-satisfaction" value="Trés-satisfait" >
+                                    <label for="Trés-satisfait">Trés-satisfait</label>
+
+                                    <input type="radio" id="Satisfait" name="niveau-satisfaction" value="Satisfait" checked>
+                                    <label for="Satisfait">Satisfait</label>
+
+                                    <input type="radio" id="Moyennement-satisfait" name="niveau-satisfaction" value="Moyennement-satisfait">
+                                    <label for="Moyennement-satisfait">Moyennement-satisfait</label>
+
+                                    <input type="radio" id="Insatisfait" name="niveau-satisfaction" value="Insatisfait">
+                                    <label for="Insatisfait">Insatisfait</label>
+
+                                    <input type="radio" id="Pas-Satisfait-du-tout" name="niveau-satisfaction" value="Pas-Satisfait-du-tout">
+                                    <label for="Pas-Satisfait-du-tout">Pas-satisfait-du-tout</label>
+                                </div>
+                            </label>
+                        </div>
+
+                        <label for="text">
+                            <span>Enquete de terrain</span>
+                            <textarea id="Enquete" name="Enquete"></textarea>
+                        </label>
+
+                        <label for="text">
+                            <span>Revue de presse</span>
+                            <textarea id="Revue" name="Revue"></textarea>
+                        </label>
+
+                        <div >
+                            <label for="Photo">
+                                <span>Photo de presse</span>
+                                <img class="photo" src="/public/images/revue-de-presse.jpg" />
+                            </label>
+                        </div>
+
+                        <!-- Bouton pour sauvegarder en base de données -->
+                        <div class="bouton-boite">
+                            <a class="bouton bouton-basique bouton-valider" href="@{satisfaction.show()}">Enregistrer</a>
+                            <button class="bouton bouton-basique bouton-annuler">Annuler</button>
+                            <a class="bouton bouton-basique" href="@{statistique.show()}">Statistique</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

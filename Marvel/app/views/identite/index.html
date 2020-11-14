@@ -1,0 +1,125 @@
+#{extends 'main.html' /}
+#{set title:'Identité' /}
+
+<header>
+    <script src="@{'C:/Users/user/Documents/CESI/Cours/Java/Projet/projet-avenger/Marvel/public/javascripts/identite.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+    <link rel="stylesheet" media="screen" href="@{'C:/Users/user/Documents/CESI/Cours/Java/Projet/projet-avenger/Marvel/public/stylesheets/identite.css'}">
+</header>
+
+<body>
+#{include 'nav.html'/}
+
+<div class="content-page" id="page-identite-create">
+
+    <div class="article">
+        <div id="formulaire-page-accueil">
+            #{include 'title.html'/}
+            <h1>Liste d'identité :</h1>
+
+                <div class=" formulaire-secondaire"><!-- Citoyen -->
+                    <button class="bouton bouton-basique" onClick="showCitoyen()" type="button" value="Citoyen">Citoyen</button>
+                    <div class="tableau" id="button-hide-Citoyen" method="post">
+                        <label for="Citoyen">
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th class="masquage2">Civilité</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Pseudo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="masquage2">${Civilite}</td>
+                                        <td>${Nom}</td>
+                                        <td>${Prenom}</td>
+                                        <td>${Pseudo}</td>
+                                        <td>
+                                            <a href=""><button class="bouton-icone bouton-icone-valider">&#xf06e;</button></a>
+                                            <a href=""><button class="bouton-icone bouton-icone-modifier">&#xf040;</button></a>
+                                            <a href=""><button class="bouton-icone bouton-icone-modifier">&#xf1f8;</button></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" formulaire-secondaire"><!-- Advenger -->
+                    <button class="bouton bouton-basique" onClick="showAdvenger()" type="button" value="Advenger">Advenger</button>
+                    <div class="tableau" id="button-hide-Advenger" method="post">
+                        <label for="Advenger">
+                            <table class="tabIdentite">
+                                <thead>
+                                    <tr>
+                                        <th class="masquage1">Civilité</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Pseudo</th>
+                                        <th>Organisation</th>
+                                        <th class="masquage1">Super pouvoir</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="masquage2">${Civilite}</td>
+                                        <td>${Nom}</td>
+                                        <td>${Prenom}</td>
+                                        <td>${Pseudo}</td>
+                                        <td>${Organisation}</td>
+                                        <td class="masquage1">${SuperPouvoir}</td>
+                                        <td>
+                                            <a href=""><button class="bouton-icone bouton-icone-valider">&#xf06e;</button></a>
+                                            <a href=""><button class="bouton-icone bouton-icone-modifier">&#xf040;</button></a>
+                                            <a href=""><button class="bouton-icone bouton-icone-modifier">&#xf1f8;</button></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </label>
+                    </div>
+                </div>
+
+                <div class=" formulaire-secondaire"><!-- Ennemi -->
+                    <button class="bouton bouton-basique" onClick="showEnnemi()" type="button" value="Ennemi">Ennemi</button>
+                    <div class="tableau" id="button-hide-Ennemi" method="post">
+                        <label for="Ennemi">
+                            <table class="tabIdentite">
+                                <thead>
+                                    <tr>
+                                        <th class="masquage1">Civilité</th>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Pseudo</th>
+                                        <th>Organisation</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="masquage2">${Civilite}</td>
+                                        <td>${Nom}</td>
+                                        <td>${Prenom}</td>
+                                        <td>${Pseudo}</td>
+                                        <td>${Organisation}</td>
+                                        <td>
+                                            <button class="bouton-icone bouton-icone-valider" type="submit">&#xf06e;</button>
+                                            <button class="bouton-icone bouton-icone-modifier" type="submit">&#xf040;</button>
+                                            <button class="bouton-icone bouton-icone-modifier" type="submit">&#xf1f8;</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </label>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

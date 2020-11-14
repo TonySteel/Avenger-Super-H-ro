@@ -1,0 +1,39 @@
+<!--#{extends 'main.html' /}
+#{set title:'Statistique' /}-->
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/statistique.css'}">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>  -->  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/min/jcanvas.min.js"></script>
+</head>
+
+<body>
+    <!--#{include 'nav.html'/}-->
+
+    <div class="content-page" id="page-statistique-show">
+
+        <div class="article">
+        <!--#{include 'title.html'/}-->
+            <!--<div class="content-page" style="position: relative; height:40vh; width:80vw">-->
+            <h1>Population</h1>
+            <div class="chart">
+                <canvas id="population-chart" width="400" height="120"></canvas>
+                <canvas id="individus-chart" width="400" height="120"></canvas>
+            </div>
+
+            <h1>Incidents</h1>
+            <div class="chart">
+                <canvas id="incident-chart" width="1300" height="450"></canvas>
+            </div>
+            <div class="chart">
+                <canvas id="gravite-chart" width="600" height="120"></canvas>
+                <canvas id="urgence-chart" width="600" height="120"></canvas>
+            </div>
+
+            <h1>Satisfaction</h1>
+            <div class="chart">
+                <canvas id="satisfaction-chart" width="1300" height="450"></canvas>
+            </div>
+        </div>
+    </div>
+</body>

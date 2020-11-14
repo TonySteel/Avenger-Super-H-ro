@@ -1,0 +1,205 @@
+
+#{set title: 'Test' /}
+
+<head>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/testCharte.css'}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/test.css'}">
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/testGen.css'}">
+</head>
+
+<body onload="initialize()">
+
+<!-- Inclusion du fichier : views/title.html -->
+#{include 'nav.html'/}
+
+    <div class="content-page_test">
+
+        <div class="aside">
+
+            <h3>Police des titres</h3>
+
+            <button class="bouton bouton-basique" type="button" onclick="fontPrompt()" id="Prompt">Prompt</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontMonoton()" id="Monoton">Monoton</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontDarling()" id="Darling">Darling</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontMichroma()" id="Michroma">Michroma</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontShareTechMono()" id="ShareTechMono">ST-Mono</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontNovaMono()" id="NovaMono">NovaMono</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontSixCaps()" id="SixCaps">SixCaps</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontPlay()" id="Play">Play</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontOrbitron()" id="Orbitron">Orbitron</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontRighteous()" id="Righteous">Righteous</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontAudiowide()" id="Audiowide">Audiowide</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontProstoOne()" id="ProstoOne">ProstoOne</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontFasterOne()" id="FasterOne">FasterOne</button>
+
+            <p>Montrer les autres titres :</p>
+            <button class="bouton bouton-basique" type="button" onclick="showOtherTitle()" id="Titres">Titres</button>
+
+            <h3>Police des textes :</h3>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheRibeye()" id="Ribeye">Ribeye</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheArial()" id="Arial">Arial</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheRoboto()" id="Roboto">Roboto</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheAcme()" id="Acme">Acme</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheDidactGothic()" id="Didact-Gothic">Didact-Gothic</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheGafata()" id="Gafata">Gafata</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheGrandHotel()" id="GrandHotel">Grand Hotel</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheGruppo()" id="Gruppo">Gruppo</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagraphePlay()" id="Play">Play</button>
+            <button class="bouton bouton-basique" type="button" onclick="fontParagrapheOrbitron()" id="Orbitron">Orbitron</button>
+
+        </div>
+
+        <div class="main-section">
+            <div class="article">
+
+                <div class="main-title">
+                    <h1 class="font-choice h1-gros">Titre h1 BIG</h1>
+                </div>
+
+            #{verbatim}
+            ${title}
+            #{/verbatim}
+
+                <ul class="titre-h">
+                    <li><h1 class="font-choice title-hide">Titre h1</h1></li>
+                    <li><h2 class="font-choice title-hide">Titre h2</h2></li>
+                    <li><h3 class="font-choice title-hide">Titre h3</h3></li>
+                    <li><h4 class="font-choice title-hide">Titre h4</h4></li>
+                    <li><h5 class="font-choice title-hide">Titre h5</h5></li>
+                    <li><h6 class="font-choice title-hide">Titre h6</h6></li>
+                </ul>
+
+                <ul>
+                    <li>Latitude : <span id="lat"></span></li>
+                    <li>Longitude : <span id="long"></span></li>
+                    <li>Précision : <span id="prec"></span></li>
+                    <li>Date - Heure : <span id="time"></span></li>
+                </ul>
+                <a href="#" onclick="stopWatch()">Arrêter</a></br>
+                <div id="map_canvas"></div>
+
+                <div>
+                    <h2 class="Vidéo">essai vidéo</h2>
+                    <video width="520" height="440" controls>
+                        <source src="/public/video/Alien return.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la balise vidéo.
+                    </video>
+                </div>
+
+                <div class="font-text">
+                    <p class="font-text">Paragraphe</p>
+                    <p class="font-text">Iamque lituis cladium concrepantibus internarum non celate ut antea turbidum saeviebat
+                        ingenium a veri consideratione detortum et nullo inpositorum vel conpositorum fidem
+                        sollemniter inquirente nec discernente a societate noxiorum insontes velut exturbatum
+                        e iudiciis fas omne discessit, et causarum legitima silente defensione carnifex rapinarum
+                        sequester et obductio capitum et bonorum ubique multatio versabatur per orientales provincias,
+                        quas recensere puto nunc oportunum absque Mesopotamia digesta, cum bella Parthica dicerentur,
+                        et Aegypto, quam necessario aliud reieci ad tempus.</p>
+                </div>
+
+                <p class="font-text">Lignes ul et li</p>
+                <ul class="font-text">
+                    <li class="font-text">Ligne 1</li>
+                    <li class="font-text">Ligne 2</li>
+                    <li class="font-text">Ligne 3</li>
+                </ul>
+
+                <a class="font-text" href="@{index()}">Lien vers mission/index</a>
+            </br>
+                <button class="bouton bouton-sauvegarde" type="button" class="police" id="Prompt">Valider</button>
+                <button class="bouton bouton-affiche" type="button" class="police" id="Prompt">Afficher</button>
+                <button class="bouton bouton-supprime" type="button" class="police" id="Prompt">Supprimer</button>
+                <button class="bouton button-modifie" type="button" class="police" id="Prompt">Modifier</button>
+        </div>
+
+            <div class="formulaire">
+                <h1>Formulaires</h1>
+                <form class="formulaire-test">
+                    <div class="input-text">
+                    <p class="font-text nom-classe">class="formulaire"</p>
+                        <label class="font-text" for="texte">
+                            <span>Input texte</span>
+                            <input type="text" name="Titre mission"/>
+                        </label>
+                        <label class="font-text" for="Texte long">
+                            <span>Input texte long</span>
+                            <textarea id="text-description-mission" name="Description"></textarea>
+                        </label>
+                        <label class="font-text" for="Date">
+                            <span>Input date</span>
+                            <input type="datetime-local" name="Date"/>
+                        </label>
+                    </div>
+
+                    <div>
+                        <!-- pour un seul choix possible on utlise type="radio" -->
+                        <p class="font-text">Input radio</p>
+                        <label class="font-text" for="choix">
+                        </label>
+                        <label class="font-text tic-tac-box" for="choix">
+                            Check 2<input class="font-text" type="radio" name="choix"/>
+                            <span class="tic-tac-radio"></span>
+                        </label>
+                        <label class="font-text" for="choix">
+                            <span><input class="font-text" type="radio" name="choix"/>Check 3</span>
+                        </label>
+                        <label class="font-text" for="choix">
+                            <span><input class="font-text" type="radio" name="choix"/>Check 4</span>
+                        </label>
+                        </br>
+
+                        <!-- pour plusieurs choix possibles on utlise type="checkbox" -->
+                        <p class="font-text">Input checkbox</p>
+                        <label class="font-text" for="choix">
+                            <span><input class="font-text tic-tac" type="checkbox" name="check"/><p>Check 1</p></span>
+                        </label>
+                        <label class="font-text" for="choix">
+                            <span><input class="font-text" type="checkbox" name="check"/>Check 2</span>
+                        </label>
+                        <label class="font-text" for="choix">
+                            <span><input class="font-text" type="checkbox" name="check"/>Check 3</span>
+                        </label>
+                        <label class="font-text" for="choix">
+                            <span><input class="font-text" type="checkbox" name="check"/>Check 4</span>
+                        </label>
+                        </br>
+                    </div>
+                    <div class="input-select">
+                        <p class="font-text">Input select</p>
+                        <select class="bouton-basique font-text" name="Liste déroulante" size="1">
+                            <option>Angleterre
+                            <option>France
+                            <option>Chine
+                            <option>Japon
+                            <option>USA
+                            <option>Russie
+                            <option>Allemagne
+                            <option>Italie
+                            <option>Espagne
+                            <option>Irlande
+                        </select>
+                    </div>
+                    <div class="input-bouton">
+                        <input class="bouton bouton-sauvegarde" type="button" value="Valider" />
+                        <button class="bouton bouton-sauvegarde">Annuler</button></br>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="aside">
+
+            <h3>images</h3>
+
+            <img class="photo-identite" src="/public/images/Gros-mechant.jpg" />
+            <img class="photo-litige" src="/public/images/Vieille-a-roulettes.jpg" />
+
+        </div>
+
+    <!-- Fin content-page-test -->
+    </div>
+    <script src="@{'/public/javascripts/test.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
+</body>

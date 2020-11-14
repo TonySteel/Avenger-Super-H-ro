@@ -1,0 +1,66 @@
+#{extends 'main.html' /}
+#{set title:'Avenger Service' /}
+@import views.html.helper_
+
+<Body>
+
+    <div class="content-page" id="page-accueil">
+    #{include 'nav.html'/}
+        <div class="formulaire" id="formulaire-page-accueil">
+            #{include 'title.html'/}
+            <div class="main-section">
+                <form action="@{Identite.index()}" method="post">
+                    <div class="form-login">
+                        <label for="login"><span>Login</span></label>
+                        <input id="login" value="$(flash.get('identiteuser.login')}" type="text" name="login"/>
+                        <label for="password"><span>Mot de passe</span></label>
+                        <input id="password" type="password" name="psw"/>
+                        <div class="bouton-boite">
+                            <input class="bouton bouton-basique bouton-valider" type="Submit"/>
+                            <a class="bouton bouton-basique bouton-basique" href="@{identite.create()}">Inscription</a>
+                        </div>
+
+                        <p>Pas moins de 6 organisations de super défenseurs à votre service et pour votre sécurité.</p>
+                        <button class="bouton bouton-basique" onClick="showOrganisation()" type="button" value="Organisation">Découvrez nos équipes d'Advenger</button>
+                    </div>
+                </form>
+
+                <div id="button-hide-organisation">
+                    <h1>Organisations :</h1>
+
+                    <h3>Super Héros</h3>
+                    <div class="image">
+                    <img class="photo" src="/public/images/Super heros.jpg"/>
+                    </div>
+
+                    <h3>Super Flics</h3>
+                    <div class="image">
+                    <img class="photo" src="/public/images/Super Flic.jpg"/>
+                    </div>
+
+                    <h3>Ligue des Super en plastique</h3>
+                    <div class="image">
+                    <img class="photo" src="/public/images/Heros en plastique.jpg"/>
+                    </div>
+                    <h3>Biomen</h3>
+                    <div class="image">
+                    <img class="photo" src="/public/images/Bioman.jpg"/>
+                    </div>
+
+                    <h3>Les cochons dans l'espace</h3>
+                    <div class="image">
+                    <img class="photo" src="/public/images/Cochon dans l'espace.jpg"/>
+                    </div>
+
+                    <h3>Comité des magiciens nazes</h3>
+                    <div class="image">
+                    <img class="photo" src="/public/images/Magiciens nazes.jpg"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="@{'/public/javascripts/Organisation.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+</Body>

@@ -1,0 +1,53 @@
+#{extends 'main.html' /}
+#{set title:'Incident' /}
+
+<body>
+    #{include 'nav.html'/}
+    <div class="content-page" id="page-incident-show">
+        <div class="main-section">
+            <div class="article">
+            #{include 'title.html'/}
+
+                <form method="post">
+                    <h1 class="sub-title"> Incident n°: 0000</h1>
+                    <div>
+                        <p><span>Titre de l'incident :</span>
+                            Attaque d'alien
+                        </p>
+
+                        <p><span>Date de l'incident : </span>
+                            18/04/2019</p>
+
+                        <p><span>Description :</span>
+                            Un citoyen contaminé se fait dévorer le visage par un alien sorti de sa bouche.
+                        </p>
+
+                        <p><span>Temoignage :</span>
+                            Des internautes déclarent avoir vu la scène en direct sur les réseaux sociaux.
+                        </p>
+
+                        <p>
+                            <span>Photo</span></br>
+                            <label for="Photo-incident">
+                                <img class="photo" src="/public/images/Alien attack.jpg"/>
+                            </label>
+                        </p>
+
+                        <p>
+                            <span>Vidéo</span></br>
+                            <video class="video" width="520" height="440" controls>
+                                <source src="/public/video/Alien return.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas bien la balise vidéo.
+                            </video>
+                        </p>
+
+                        <div class="bouton-boite">
+                            <a class="bouton bouton-basique" href="@{incident.create()}">Retour au formulaire</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

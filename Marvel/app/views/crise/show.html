@@ -1,0 +1,63 @@
+#{extends 'main.html' /}
+#{set title:'Crise' /}
+
+<head>
+    <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/crise.css'}">
+</head>
+
+<body>
+#{include 'nav.html'/}
+
+    <div class="content-page" id="page-crise-show">
+
+        <div class="article">
+        #{include 'title.html'/}
+
+            <h1 class="sub-title">${TitreCrise}</h1>
+
+            <p><span>Signalement de suspect :</span>${Civil}</p>
+
+            <p><span>Déclaration de dégâts :</span>${Degat}</p>
+
+            <p><span>Photo de la crise</span></p>
+                <div class="image">
+                    <img class="photo" src="/public/images/Alien attack.jpg" />
+                </div>
+
+            <p><span>Commentaire :</span>${commentaire}</p>
+
+            <div class="interloupe">
+                <p>-----------------------------------------------------------------</p>
+            </div>
+        </div>
+
+        <div class="article">
+
+            <h1 class="sub-title">Litige</h1>
+
+            <p><span>Objet du litige :</span>${TitreLitige}</p>
+
+            <p><span>Date du litige :</span>${DateLitige}</p>
+
+            <p><span>Prejudice :</span>${prejudice}</p>
+
+            <p><span>Victime colatérale :</span>${victime}</p>
+
+            <p><span>Coût du litige :</span>${CoutLitige}</p>
+
+            <p><span>Photos du litige</span></p>
+                 <div class="image">
+                        <img class="photo-litige" src="/public/images/Vieille-a-roulettes.jpg" />
+                 </div>
+        </div>
+
+        <div class="article">
+            <div class="bouton-boite">
+                <a class="bouton bouton-basique bouton-valider" href="@{Crise.create()}">Retour au formulaire</a>
+            </div>
+        </div>
+
+    </div>
+    <script src="@{'/public/javascripts/crise.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
+</body>

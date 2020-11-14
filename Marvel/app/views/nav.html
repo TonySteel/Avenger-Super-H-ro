@@ -1,0 +1,89 @@
+#{extends 'main.html' /}
+
+<body>
+    <nav class="nav-list">
+        <ul>
+            <li class="retour" id="icone"><a class="titreMenu" href="@{application.index()}"><i class="fas fa-home"></i></a>
+
+            <li class="burgerMenu" id="icone"><a class="titreMenu"></a>
+                <i class="fas fa-bars"></i>
+                <ul class="submenu">
+                    <li><a class="titreMenu">Identite</a>
+                        <ul>
+                            <li><a href="@{identite.index()}">Liste</a></li>
+                            <li><a href="@{identite.create()}">Formulaire</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="titreMenu">Incident</a>
+                        <ul>
+                            <li><a href="@{incident.index()}">Liste</a></li>
+                            <li><a href="@{incident.create()}">Formulaire</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="titreMenu">Mission</a>
+                        <ul>
+                            <li><a href="@{mission.index()}">Liste</a></li>
+                            <li><a href="@{mission.create()}">Formulaire</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="titreMenu">Crise</a>
+                        <ul>
+                            <li><a href="@{crise.index()}">Liste</a></li>
+                            <li><a href="@{crise.create()}">Formulaire</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="titreMenu">Satisfaction</a>
+                        <ul>
+                            <li><a href="@{satisfaction.index()}">Liste</a></li>
+                            <li><a href="@{satisfaction.create()}">Formulaire</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a class="titreMenu" href="@{statistique.show()}">Statistique</a></li>
+
+                </ul>
+            </li>
+
+            <li class="ligneMenu"><a class="titreMenu">Identité</a>
+                <ul class="submenu">
+                    <li><a href="@{identite.index()}">Liste</a></li>
+                    <li><a href="@{identite.create()}">Formulaire</a></li>
+                </ul>
+            </li>
+
+            <li  class="ligneMenu"><a class="titreMenu">Incident</a>
+                <ul class="submenu">
+                    <li><a href="@{incident.index()}">Liste</a></li>
+                    <li><a href="@{incident.create()}">Formulaire</a></li>
+                </ul>
+            </li>
+
+            <li  class="ligneMenu"><a class="titreMenu">Mission</a>
+                <ul class="submenu">
+                    <li><a href="@{mission.index()}">Liste</a></li>
+                    <li><a href="@{mission.create()}">Formulaire</a></li>
+                </ul>
+            </li>
+
+            <li  class="ligneMenu"><a class="titreMenu">Crise</a>
+                <ul class="submenu">
+                    <li><a href="@{crise.index()}">Liste</a></li>
+                    <li><a href="@{crise.create()}">Formulaire</a></li>
+                </ul>
+            </li>
+
+            <li  class="ligneMenu"><a class="titreMenu">Satisfaction</a>
+                <ul class="submenu">
+                    <li><a href="@{satisfaction.index()}">Liste</a></li>
+                    <li><a href="@{satisfaction.create()}">Formulaire</a></li>
+                </ul>
+            </li>
+
+            <li><a class="titreMenu" href="@{statistique.show()}">Statistique</a></li>
+        </ul>
+    </nav>
+</body>
