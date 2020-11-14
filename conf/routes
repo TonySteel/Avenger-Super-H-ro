@@ -1,0 +1,33 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+GET	/identite                               identite.index
+
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+
+#
+GET     /incident                               incident.index
+GET     /incident/create                        incident.create
+GET     /mission/create                         mission.create
+GET     /mission/show                           mission.show
+GET     /mission/test                           mission.test
+GET     /crise/index                            crise.index
+GET     /crise/create                           crise.create
+GET     /crise/show                             crise.show
+GET		/satisfaction/index                     satisfaction.index
+GET     /satisfaction/create                    satisfaction.create
+GET     /satisfaction/show                      satisfaction.show
+GET		/statistique/index                      statistique.index
+
